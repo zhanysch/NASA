@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">SkyScanner</string>
+    <string name="world">enjoy with a world</string>
+    <string name="overseas">travel over 3 seas</string>
+    <string name="stay">Stay at home</string>
+    <string name="travel">Travel</string>
+    <string name="inpiration">Inpiration</string>
+    <string name="trip">Trip</string>
+    <string name="inspiration">Inspiration</string>
+    <string name="profile">profile</string>
+    <string name="profiler">Profile</string>
+    <string name="failure">Failure is not an option!</string>
+</resources>

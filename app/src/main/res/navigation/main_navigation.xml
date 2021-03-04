@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.baish.skyscanner.ui.splash.SplashFragment"
+        android:label="SplashFragment"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_onBoardMainFragment"
+            app:destination="@id/onBoardMainFragment"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_splashFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onBoardMainFragment"
+        android:name="com.baish.skyscanner.ui.onboard.OnBoardMainFragment"
+        android:label="OnBoardMainFragment"
+        tools:layout="@layout/fragment_mainonboard">
+        <action
+            android:id="@+id/action_onBoardMainFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.baish.skyscanner.ui.main.MainFragment"
+        tools:layout="@layout/fragment_main"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_apodFragment"
+            app:destination="@id/apodFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/apodFragment"
+        tools:layout="@layout/apod_layout"
+        android:name="com.baish.skyscanner.ui.main.apod.ApodFragment"
+        android:label="ApodFragment" />
+</navigation>
