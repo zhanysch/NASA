@@ -1,6 +1,9 @@
 package com.baish.skyscanner.ui.main
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -23,12 +26,11 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupImageOfDay()
         setupTechProjects()
         setupListeners()
-        vm.loadImage()
         vm.loadProjects()
-
+       setHasOptionsMenu(true)
+        binding?.toolbar?.toolbar?.inflateMenu(R.menu.menu_main)
     }
 
     private fun setupListeners() {
@@ -44,12 +46,7 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
         })
     }
 
-    private fun setupImageOfDay() {
-      /*vm.image.observe(viewLifecycleOwner, Observer {
-          binding?.textNews?.text = it.title
-          Picasso.get().load(it.media_type).into(binding?.imageNews)
-      })*/
-    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

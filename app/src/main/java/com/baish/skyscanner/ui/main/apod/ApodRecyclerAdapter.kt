@@ -10,9 +10,7 @@ import com.baish.skyscanner.R
 import com.baish.skyscanner.data.model.nasa.imageofday.ImageOfTheDayModel
 import com.baish.skyscanner.databinding.ApodItemBinding
 
-class ApodRecyclerAdapter : ListAdapter<ImageOfTheDayModel, ApodViewHolder>(diffUtil) {
-
-
+class ApodRecyclerAdapter : androidx.recyclerview.widget.ListAdapter<ImageOfTheDayModel, ApodViewHolder>(diffUtil) {
 
     companion object{
         val diffUtil = object : DiffUtil.ItemCallback<ImageOfTheDayModel>(){
@@ -27,6 +25,14 @@ class ApodRecyclerAdapter : ListAdapter<ImageOfTheDayModel, ApodViewHolder>(diff
             }
 
         }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ApodViewHolder {
+        TODO("Not yet implemented")
+    }
+
+    override fun onBindViewHolder(holder: ApodViewHolder, position: Int) {
+        TODO("Not yet implemented")
     }
 }
 

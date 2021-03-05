@@ -5,12 +5,18 @@
     android:layout_height="match_parent"
     android:background="#2A292B">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_layout"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -25,22 +31,22 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:src="@drawable/apod2"
                     android:id="@+id/imageNews"
-                    android:scaleType="centerCrop"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/apod2" />
 
                 <TextView
                     android:id="@+id/textNews"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/gilroy_bold"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:text="Astronomic picture of the day NASA"
                     android:textColor="@color/colorWhite"
                     android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -52,18 +58,18 @@
                 app:layout_constraintTop_toBottomOf="@id/apod">
 
                 <ImageView
-                    android:src="@drawable/techproject2"
                     android:id="@+id/imageTwo"
-                    android:scaleType="centerCrop"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/techproject2" />
 
                 <TextView
                     android:id="@+id/textofImage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Techport"
                     android:fontFamily="@font/gilroy_bold"
+                    android:text="Techport"
                     android:textColor="@color/colorWhite"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent" />
@@ -72,26 +78,26 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraudio"
-                app:layout_constraintTop_toBottomOf="@id/apod"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_width="204dp"
-                android:layout_height="200dp">
+                android:layout_height="200dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/apod">
 
                 <ImageView
                     android:id="@+id/imageAudio"
-                    android:src="@drawable/video"
-                    android:scaleType="centerCrop"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/video" />
 
                 <TextView
                     android:id="@+id/textofAudio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/gilroy_bold"
+                    android:text="NASA Video"
                     android:textColor="@color/colorWhite"
                     android:textSize="14sp"
-                    android:text="NASA Video"
                     app:layout_constraintBottom_toBottomOf="parent" />
 
 
@@ -99,26 +105,26 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constrExoplanet"
-                app:layout_constraintTop_toBottomOf="@id/constrImage"
-                app:layout_constraintStart_toStartOf="parent"
                 android:layout_width="204dp"
-                android:layout_height="200dp">
+                android:layout_height="200dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/constrImage">
 
                 <ImageView
                     android:id="@+id/imageExoplanet"
-                    android:src="@drawable/exoplanet"
-                    android:scaleType="centerCrop"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/exoplanet" />
 
                 <TextView
                     android:id="@+id/textofExoplanet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/gilroy_bold"
+                    android:text="Exoplanets"
                     android:textColor="@color/colorWhite"
                     android:textSize="14sp"
-                    android:text="Exoplanets"
                     app:layout_constraintBottom_toBottomOf="parent" />
 
 
@@ -126,26 +132,26 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constrDonki"
-                app:layout_constraintTop_toBottomOf="@id/constraudio"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_width="204dp"
-                android:layout_height="200dp">
+                android:layout_height="200dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/constraudio">
 
                 <ImageView
                     android:id="@+id/imageDonli"
-                    android:src="@drawable/solarflare"
-                    android:scaleType="centerCrop"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/solarflare" />
 
                 <TextView
                     android:id="@+id/textofDonki"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/gilroy_bold"
+                    android:text="Solar Flare"
                     android:textColor="@color/colorWhite"
                     android:textSize="14sp"
-                    android:text="Solar Flare"
                     app:layout_constraintBottom_toBottomOf="parent" />
 
 
