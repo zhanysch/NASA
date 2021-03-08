@@ -38,10 +38,34 @@
         <action
             android:id="@+id/action_mainFragment_to_apodFragment"
             app:destination="@id/apodFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_faqFragment"
+            app:destination="@id/faqFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_termsConditionsFragment"
+            app:destination="@id/termsConditionsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_privacyFragment"
+            app:destination="@id/privacyFragment" />
     </fragment>
     <fragment
         android:id="@+id/apodFragment"
         tools:layout="@layout/apod_layout"
         android:name="com.baish.skyscanner.ui.main.apod.ApodFragment"
         android:label="ApodFragment" />
+    <fragment
+        android:id="@+id/faqFragment"
+        tools:layout="@layout/faq_layout"
+        android:name="com.baish.skyscanner.ui.menu.FaqFragment"
+        android:label="FaqFragment" />
+    <fragment
+        android:id="@+id/termsConditionsFragment"
+        tools:layout="@layout/termsconditions_layout"
+        android:name="com.baish.skyscanner.ui.menu.TermsConditionsFragment"
+        android:label="TermsConditionsFragment" />
+    <fragment
+        android:id="@+id/privacyFragment"
+        tools:layout="@layout/privacy_layout"
+        android:name="com.baish.skyscanner.ui.menu.PrivacyFragment"
+        android:label="PrivacyFragment" />
 </navigation>

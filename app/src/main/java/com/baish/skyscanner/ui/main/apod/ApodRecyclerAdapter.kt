@@ -1,16 +1,23 @@
 package com.baish.skyscanner.ui.main.apod
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.baish.skyscanner.R
 import com.baish.skyscanner.data.model.nasa.imageofday.ImageOfTheDayModel
 import com.baish.skyscanner.databinding.ApodItemBinding
+import com.squareup.picasso.Picasso
 
 class ApodRecyclerAdapter : androidx.recyclerview.widget.ListAdapter<ImageOfTheDayModel, ApodViewHolder>(diffUtil) {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ApodViewHolder {
+       return ApodViewHolder.create(parent)
+    }
+
+    override fun onBindViewHolder(holder: ApodViewHolder, position: Int) {
+        holder.bind(getItem(position))
+    }
 
     companion object{
         val diffUtil = object : DiffUtil.ItemCallback<ImageOfTheDayModel>(){
@@ -27,18 +34,13 @@ class ApodRecyclerAdapter : androidx.recyclerview.widget.ListAdapter<ImageOfTheD
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ApodViewHolder {
-        TODO("Not yet implemented")
-    }
-
-    override fun onBindViewHolder(holder: ApodViewHolder, position: Int) {
-        TODO("Not yet implemented")
-    }
 }
 
 class ApodViewHolder(private val binding : ApodItemBinding) : RecyclerView.ViewHolder(binding.root){
-    fun bind(){
-
+    fun bind(item: ImageOfTheDayModel) {
+       binding.apodTitle.text = item.title
+        binding.apodExplanation.text = item.explanation
+        Picasso.get().load(item.url).placeholder(R.drawable.nasa_place).into(binding.apoditemImage)
     }
 
     companion object {

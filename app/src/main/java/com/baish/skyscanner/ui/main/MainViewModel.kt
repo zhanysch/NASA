@@ -1,5 +1,7 @@
 package com.baish.skyscanner.ui.main
 
+import Files
+import LeadOrganization
 import Project
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -15,6 +17,7 @@ class MainViewModel(private val service : NasaInteractor): ViewModel() {
 
 
     val project = MutableLiveData<Project>()
+    val projectFiles = MutableLiveData<LeadOrganization>()
 
     fun loadImage(){
        viewModelScope.launch {
