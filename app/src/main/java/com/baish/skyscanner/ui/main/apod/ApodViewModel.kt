@@ -6,9 +6,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.baish.skyscanner.data.interactor.NasaInteractor
 import com.baish.skyscanner.data.model.nasa.imageofday.ImageOfTheDayModel
+import com.baish.skyscanner.data.repository.NasaRepository
 import kotlinx.coroutines.launch
 
-class ApodViewModel(private val service : NasaInteractor): ViewModel() {
+class ApodViewModel(private val service : NasaInteractor, private val reoistory: NasaRepository): ViewModel() {
 
     val image = MutableLiveData<List<ImageOfTheDayModel>>()
 
@@ -22,4 +23,5 @@ class ApodViewModel(private val service : NasaInteractor): ViewModel() {
             }
         }
     }
+  fun getContent() = reoistory.getImageOfTheDayDb()
 }

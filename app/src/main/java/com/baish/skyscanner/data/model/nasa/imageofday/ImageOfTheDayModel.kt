@@ -1,6 +1,10 @@
 package com.baish.skyscanner.data.model.nasa.imageofday
 
+import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 /*
 Copyright (c) 2021 Kotlin Data Classes Generated from JSON powered by http://www.json2kotlin.com
@@ -13,9 +17,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
-
+@Parcelize
+@Entity
 data class ImageOfTheDayModel (
-
+	@PrimaryKey
+	val id : Int,
 	@SerializedName("copyright") val copyright : String,
 	@SerializedName("date") val date : String,
 	@SerializedName("explanation") val explanation : String,
@@ -24,4 +30,4 @@ data class ImageOfTheDayModel (
 	@SerializedName("service_version") val service_version : String,
 	@SerializedName("title") val title : String,
 	@SerializedName("url") val url : String
-)
+) : Parcelable
