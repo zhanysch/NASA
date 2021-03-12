@@ -9,7 +9,7 @@ import com.baish.skyscanner.data.model.nasa.imageofday.ImageOfTheDayModel
 import com.baish.skyscanner.data.repository.NasaRepository
 import kotlinx.coroutines.launch
 
-class ApodViewModel(private val service : NasaInteractor, private val reoistory: NasaRepository): ViewModel() {
+class ApodViewModel(private val service : NasaInteractor, private val repository: NasaRepository): ViewModel() {
 
     val image = MutableLiveData<List<ImageOfTheDayModel>>()
 
@@ -23,5 +23,9 @@ class ApodViewModel(private val service : NasaInteractor, private val reoistory:
             }
         }
     }
-  fun getContent() = reoistory.getImageOfTheDayDb()
+
+    /*fun getContentTw(): MutableLiveData<List<ImageOfTheDayModel>>(){
+        return repository.getImageOfTheDayDb()
+    }*/
+  fun getContent() = repository.getImageOfTheDayDb()
 }

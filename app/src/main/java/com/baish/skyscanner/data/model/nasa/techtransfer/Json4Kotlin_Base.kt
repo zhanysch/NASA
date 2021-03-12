@@ -14,5 +14,9 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 
 data class Json4Kotlin_Base (
 
-	@SerializedName("projects") val projects : Projects
+	@SerializedName("results") val results : List<List<String>>,
+	@SerializedName("count") val count : Int,
+	@SerializedName("total") val total : Int,
+	@SerializedName("perpage") val perpage : Int,
+	@SerializedName("page") val page : Int
 )

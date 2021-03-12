@@ -1,3 +1,5 @@
+package com.baish.skyscanner.data.model.nasa.techproject
+
 import com.google.gson.annotations.SerializedName
 
 /*

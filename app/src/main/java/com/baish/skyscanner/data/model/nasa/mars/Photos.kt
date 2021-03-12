@@ -1,6 +1,7 @@
-package com.baish.skyscanner.data.model.nasa.techproject
+package com.baish.skyscanner.data.model.nasa.mars
 
-import com.baish.skyscanner.data.model.nasa.techproject.Files
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 /*
@@ -14,15 +15,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
-
-data class LibraryItems (
-
-	@SerializedName("id") val id : Int,
-	@SerializedName("title") val title : String,
-	@SerializedName("type") val type : String,
-	@SerializedName("description") val description : String,
-	@SerializedName("externalUrl") val externalUrl : String,
-	@SerializedName("publishedBy") val publishedBy : String,
-	@SerializedName("publishedDate") val publishedDate : String,
-	@SerializedName("files") val files : List<Files>
+@Entity
+data class Photos (
+    @PrimaryKey(autoGenerate = true)
+    @SerializedName("sortId") val sortId : Long,
+    @SerializedName("id") val id : Int,
+    @SerializedName("sol") val sol : Int,
+    @SerializedName("camera") val camera : Camera,
+    @SerializedName("img_src") val img_src : String,
+    @SerializedName("earth_date") val earth_date : String,
+    @SerializedName("rover") val rover : Rover
 )

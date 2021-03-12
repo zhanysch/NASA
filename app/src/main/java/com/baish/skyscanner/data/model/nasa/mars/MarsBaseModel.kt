@@ -1,6 +1,5 @@
-package com.baish.skyscanner.data.model.nasa.techproject
+package com.baish.skyscanner.data.model.nasa.mars
 
-import com.baish.skyscanner.data.model.nasa.techproject.Files
 import com.google.gson.annotations.SerializedName
 
 /*
@@ -15,14 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
 
-data class LibraryItems (
+data class MarsBaseModel<T> (
 
-	@SerializedName("id") val id : Int,
-	@SerializedName("title") val title : String,
-	@SerializedName("type") val type : String,
-	@SerializedName("description") val description : String,
-	@SerializedName("externalUrl") val externalUrl : String,
-	@SerializedName("publishedBy") val publishedBy : String,
-	@SerializedName("publishedDate") val publishedDate : String,
-	@SerializedName("files") val files : List<Files>
+	@SerializedName("photos") val photos : List<T>
 )

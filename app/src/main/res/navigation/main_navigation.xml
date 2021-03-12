@@ -47,6 +47,9 @@
         <action
             android:id="@+id/action_mainFragment_to_privacyFragment"
             app:destination="@id/privacyFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_techProjectFragment"
+            app:destination="@id/techProjectFragment" />
     </fragment>
     <fragment
         android:id="@+id/apodFragment"
@@ -68,4 +71,9 @@
         tools:layout="@layout/privacy_layout"
         android:name="com.baish.skyscanner.ui.menu.PrivacyFragment"
         android:label="PrivacyFragment" />
+    <fragment
+        android:id="@+id/techProjectFragment"
+        tools:layout="@layout/techprojeckt_layout"
+        android:name="com.baish.skyscanner.ui.main.techproject.TechProjectFragment"
+        android:label="TechProjectFragment" />
 </navigation>

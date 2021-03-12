@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="#2A292B"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/techprojectImage"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/techProTitle"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_bold"
+                android:layout_marginHorizontal="16dp"
+                android:textColor="@color/colorWhite"
+                android:textSize="24sp"
+                app:layout_constraintTop_toBottomOf="@id/techprojectImage" />
+
+            <TextView
+                android:id="@+id/techProExplanation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_bold"
+                android:lineSpacingExtra="2sp"
+                android:layout_marginHorizontal="16dp"
+                android:textColor="@color/colorWhite"
+                android:textSize="14sp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/techProTitle"/>
+
+            <TextView
+                android:id="@+id/techProBenefits"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_bold"
+                android:lineSpacingExtra="2sp"
+                android:textColor="@color/colorWhite"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintTop_toBottomOf="@id/techProExplanation"
+                android:layout_marginTop="20dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

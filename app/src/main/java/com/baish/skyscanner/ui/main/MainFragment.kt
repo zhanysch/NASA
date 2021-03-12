@@ -17,7 +17,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class MainFragment : Fragment() {
 
     var binding: FragmentMainBinding? = null
-    private val vm by viewModel<MainViewModel>()
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,27 +31,21 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupTechProjects()
         setupListeners()
-        vm.loadProjects()
-        vm.projectFiles
+
     }
 
     private fun setupListeners() {
         binding?.apod?.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_apodFragment)
         }
+
+        binding?.constrImage?.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_techProjectFragment)
+        }
         menuClicks()
     }
 
-    private fun setupTechProjects() {
-        vm.project.observe(viewLifecycleOwner, Observer {
-            binding?.textofImage?.text = it.title
-        })
-        vm.projectFiles.observe(viewLifecycleOwner, Observer {
-            Picasso.get().load(it.type).into(binding?.imageTwo)
-        })
-    }
 
     private fun menuClicks() {
         binding?.toolbar?.toolbar?.setOnMenuItemClickListener {
@@ -59,7 +53,7 @@ class MainFragment : Fragment() {
 
                 R.id.conact ->{
                     val client = Intent(Intent.ACTION_SENDTO).apply {
-                        data = Uri.parse("zhanysch@gmai.com")
+                        data = Uri.parse("malito:zhanysch@gmai.com")
                     }
                     startActivity(Intent.createChooser(client,"contact"))
                     return@setOnMenuItemClickListener true

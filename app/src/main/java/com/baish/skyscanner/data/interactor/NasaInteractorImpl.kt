@@ -1,6 +1,6 @@
 package com.baish.skyscanner.data.interactor
 
-import TechProjectModel
+import com.baish.skyscanner.data.model.nasa.techproject.TechProjectModel
 import com.baish.skyscanner.data.model.nasa.imageofday.ImageOfTheDayModel
 import com.baish.skyscanner.data.remote.NasaService
 import retrofit2.Response
