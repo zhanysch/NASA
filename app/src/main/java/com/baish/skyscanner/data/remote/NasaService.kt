@@ -33,8 +33,7 @@ interface NasaService {
         @Query("sol") sol: Int,
         @Query("page") page: Int,
         @Query("api_key") api_key: String,
-        pageSize: Int,
-    ) : MarsBaseModel<Photos>
+        ) : MarsBaseModel<Photos>
 
     //https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=1&api_key=EnKUTj7VDqVE0Cnu63SCYny69JzzTllJdhzVCmZb
 

@@ -1,0 +1,48 @@
+package com.baish.skyscanner.ui.main.mars
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.paging.ExperimentalPagingApi
+import com.baish.skyscanner.databinding.MarsLayoutBinding
+import com.baish.skyscanner.databinding.TechprojecktLayoutBinding
+import com.baish.skyscanner.ui.main.techproject.TechProjectViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
+
+class MarsFragment : Fragment() {
+
+    var binding: MarsLayoutBinding? = null
+    private val vm by viewModel<MarsViewModel>()
+    private val adapterMars by lazy { MarsRecyclerAdapter() }
+
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+
+        binding = MarsLayoutBinding.inflate(layoutInflater)
+        return binding?.root
+    }
+
+    @ExperimentalPagingApi
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding?.recyclerMars?.adapter = adapterMars
+        setupViewModel()
+
+    }
+
+    @ExperimentalPagingApi
+    private fun setupViewModel() {
+        vm.getPagindMarsData().observe(
+            viewLifecycleOwner, Observer {
+                adapterMars.submitData(lifecycle,it)
+            }
+        )
+    }
+}

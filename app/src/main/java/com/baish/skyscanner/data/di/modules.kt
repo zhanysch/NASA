@@ -8,6 +8,7 @@ import com.baish.skyscanner.data.remote.RetrofitBuilder
 import com.baish.skyscanner.data.repository.NasaRepository
 import com.baish.skyscanner.data.repository.NasaRepositoryImpl
 import com.baish.skyscanner.ui.main.apod.ApodViewModel
+import com.baish.skyscanner.ui.main.mars.MarsViewModel
 import com.baish.skyscanner.ui.main.techproject.TechProjectViewModel
 import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -17,6 +18,7 @@ import org.koin.dsl.module
 val viewModelModule: Module = module {
     viewModel { ApodViewModel(get(),get()) }
     viewModel { TechProjectViewModel(get()) }
+    viewModel { MarsViewModel(get()) }
 }
 val dbModule : Module = module {
     single { AppDataBase.getInstanceDB(androidApplication()) }

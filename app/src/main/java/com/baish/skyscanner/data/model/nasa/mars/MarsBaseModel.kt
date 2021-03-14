@@ -1,5 +1,7 @@
 package com.baish.skyscanner.data.model.nasa.mars
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 /*
@@ -13,8 +15,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
-
+@Entity  ///???
 data class MarsBaseModel<T> (
-
-	@SerializedName("photos") val photos : List<T>
+    @PrimaryKey(autoGenerate = true)
+	val id: Int,  //by self added due of the error
+	@SerializedName("photos") val photos : List<Photos>
 )

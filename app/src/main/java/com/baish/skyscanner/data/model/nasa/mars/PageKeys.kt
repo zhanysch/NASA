@@ -6,8 +6,8 @@ import androidx.room.PrimaryKey
 @Entity
 data class PageKeys (
     @PrimaryKey
-    val id : Long,
-    val prevKey : Int,
-    val nextKey : Int
+    val id : Int,
+    val prevKey : Int?,
+    val nextKey : Int?
 
 )

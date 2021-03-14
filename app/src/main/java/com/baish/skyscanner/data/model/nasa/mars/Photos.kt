@@ -17,8 +17,7 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 
 @Entity
 data class Photos (
-    @PrimaryKey(autoGenerate = true)
-    @SerializedName("sortId") val sortId : Long,
+    @PrimaryKey
     @SerializedName("id") val id : Int,
     @SerializedName("sol") val sol : Int,
     @SerializedName("camera") val camera : Camera,

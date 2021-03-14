@@ -50,6 +50,9 @@
         <action
             android:id="@+id/action_mainFragment_to_techProjectFragment"
             app:destination="@id/techProjectFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_marsFragment"
+            app:destination="@id/marsFragment" />
     </fragment>
     <fragment
         android:id="@+id/apodFragment"
@@ -76,4 +79,9 @@
         tools:layout="@layout/techprojeckt_layout"
         android:name="com.baish.skyscanner.ui.main.techproject.TechProjectFragment"
         android:label="TechProjectFragment" />
+    <fragment
+        android:id="@+id/marsFragment"
+        tools:layout="@layout/mars_layout"
+        android:name="com.baish.skyscanner.ui.main.mars.MarsFragment"
+        android:label="MarsFragment" />
 </navigation>

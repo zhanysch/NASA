@@ -1,13 +1,14 @@
 package com.baish.skyscanner.data.db
 
 import android.content.Context
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import androidx.room.*
 import com.baish.skyscanner.data.model.nasa.imageofday.ImageOfTheDayModel
+import com.baish.skyscanner.data.model.nasa.mars.*
 
 
-@Database(entities = [ImageOfTheDayModel :: class],version = 1)
+@Database(entities = [ImageOfTheDayModel :: class, MarsBaseModel::class,Photos::class,PageKeys::class,Camera::class,
+                     Rover::class],version = 3,exportSchema = false)
+@TypeConverters(value = [TypeConvertor::class])
 abstract class AppDataBase : RoomDatabase() {
     abstract fun getContentDao(): NasaDao
     abstract fun getPagigngKeysDao(): PageKeysDao

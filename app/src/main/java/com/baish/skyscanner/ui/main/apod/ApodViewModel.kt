@@ -1,6 +1,7 @@
 package com.baish.skyscanner.ui.main.apod
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -18,14 +19,15 @@ class ApodViewModel(private val service : NasaInteractor, private val repository
             runCatching {
                 val result = service.loadImagesOfDay(count = 50,thumbs = false)
                 if (result.isSuccessful) image.postValue(result.body())
+                repository.loadImagesOfDayDB(50 ,false)
             }.onFailure {
                 Log.d("fsdgsdgs","gsdgsgsgsdg")
             }
         }
     }
 
-    /*fun getContentTw(): MutableLiveData<List<ImageOfTheDayModel>>(){
+    fun getContentTw(): LiveData<List<ImageOfTheDayModel>> {
         return repository.getImageOfTheDayDb()
-    }*/
+    }
   fun getContent() = repository.getImageOfTheDayDb()
 }

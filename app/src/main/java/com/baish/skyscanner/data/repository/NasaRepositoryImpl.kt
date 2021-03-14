@@ -1,15 +1,19 @@
 package com.baish.skyscanner.data.repository
 
 import androidx.lifecycle.LiveData
+import androidx.paging.*
+import com.baish.skyscanner.data.PagingMediator
 import com.baish.skyscanner.data.db.AppDataBase
 import com.baish.skyscanner.data.db.NasaDao
 import com.baish.skyscanner.data.model.nasa.imageofday.ImageOfTheDayModel
+import com.baish.skyscanner.data.model.nasa.mars.Photos
 import com.baish.skyscanner.data.remote.NasaService
 import retrofit2.Response
+import java.util.concurrent.Flow
 
 interface NasaRepository{
     suspend fun loadImagesOfDayDB(count : Int, thumbs : Boolean)
-    fun getImageOfTheDayDb(): LiveData<ImageOfTheDayModel>
+    fun getImageOfTheDayDb(): LiveData<List<ImageOfTheDayModel>>
 
 
 }
@@ -21,4 +25,18 @@ class NasaRepositoryImpl(private val network : NasaService, private val db : App
     }
 
     override fun getImageOfTheDayDb() = db.getContentDao().getContent()
+
+    @ExperimentalPagingApi
+    fun getPagingResult(): LiveData<PagingData<Photos>>{
+        val pagingSourceFactory = {db.getContentDao().getAll()}
+        return  Pager(
+            config = PagingConfig(pageSize = PAGE_SIZE, enablePlaceholders = false),
+        remoteMediator =  PagingMediator(network,db),
+            pagingSourceFactory = pagingSourceFactory
+        ).liveData
+    }
+
+    companion object{
+        const val  PAGE_SIZE = 20
+    }
 }

@@ -17,12 +17,15 @@ interface NasaDao {
     fun saveContent(user: List<ImageOfTheDayModel>)
 
     @Query("SELECT * FROM ImageOfTheDayModel")
-   fun getContent(): LiveData<ImageOfTheDayModel>
+    fun getContent(): LiveData<List<ImageOfTheDayModel>>
 
-   @Insert
-   fun insert(data: List<Photos>)
+    @Insert
+    fun insert(data: List<Photos>)
 
-   @Query("SELECT * FROM Photos")
-   fun getAll(): PagingSource<Int, Photos>
+    @Query("SELECT * FROM Photos")
+    fun getAll(): PagingSource<Int, Photos>
+
+    @Query("DELETE FROM Photos")
+    suspend fun deleteALL()
 
 }
