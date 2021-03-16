@@ -43,6 +43,10 @@ class MainFragment : Fragment() {
         binding?.constrImage?.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_techProjectFragment)
         }
+
+       binding?.constrExoplanet?.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_marsFragment)
+       }
         menuClicks()
     }
 
@@ -53,7 +57,7 @@ class MainFragment : Fragment() {
 
                 R.id.conact ->{
                     val client = Intent(Intent.ACTION_SENDTO).apply {
-                        data = Uri.parse("malito:zhanysch@gmai.com")
+                        data = Uri.parse("mailto:zhanysch@gmai.com")
                     }
                     startActivity(Intent.createChooser(client,"contact"))
                     return@setOnMenuItemClickListener true
@@ -77,8 +81,6 @@ class MainFragment : Fragment() {
             }
         }
     }
-
-
 
     override fun onDestroyView() {
         super.onDestroyView()

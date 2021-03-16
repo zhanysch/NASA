@@ -40,8 +40,8 @@ class PagingMediator(
 
             LoadType.APPEND -> {
                 val remoteKeys =
-                    getRemoteKeysForLastItem(state) ?: throw InvalidObjectException("prepend error")
-                if (remoteKeys.nextKey == null) throw InvalidObjectException("prepend error")
+                    getRemoteKeysForLastItem(state) ?: throw InvalidObjectException("append error")
+                if (remoteKeys.nextKey == null) throw InvalidObjectException("append error")
 
                 remoteKeys.nextKey
             }
@@ -63,6 +63,7 @@ class PagingMediator(
 
                 val prevKey = if (page == START_PAGE) null else page - 1
                 val nextKey = if (endofPaginationReached) null else page + 1
+
                 val keys = apiResponse.photos.map {
                     PageKeys(id = it.id, prevKey = prevKey,nextKey = nextKey)
                 }

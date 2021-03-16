@@ -7,7 +7,7 @@ import com.baish.skyscanner.data.model.nasa.mars.*
 
 
 @Database(entities = [ImageOfTheDayModel :: class, MarsBaseModel::class,Photos::class,PageKeys::class,Camera::class,
-                     Rover::class],version = 3,exportSchema = false)
+                     Rover::class],version = 1,exportSchema = false)
 @TypeConverters(value = [TypeConvertor::class])
 abstract class AppDataBase : RoomDatabase() {
     abstract fun getContentDao(): NasaDao

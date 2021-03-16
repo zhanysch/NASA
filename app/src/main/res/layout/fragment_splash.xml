@@ -7,13 +7,39 @@
 
 
     <ImageView
-        android:layout_width="wrap_content"
+        android:id="@+id/splashnasa"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"
-       android:src="@drawable/nasa"
+       android:src="@drawable/moonnasa"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/nasa"
+        android:src="@drawable/ic_nasa_word"
+        app:layout_constraintBottom_toBottomOf="@id/splashnasa"
+        app:layout_constraintStart_toStartOf="@id/splashnasa"
+        app:layout_constraintEnd_toEndOf="@id/splashnasa"
+        android:layout_marginBottom="110dp"
+
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/splashnasa"
+        app:layout_constraintEnd_toEndOf="@id/splashnasa"
+        app:layout_constraintStart_toStartOf="@id/splashnasa"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/bg_shade"
+        android:textColor="@color/colorWhite"
+        android:fontFamily="@font/gilroy_bold"
+        android:textSize="24sp"
+        android:text="The National Aeronautics and \n Space Administration"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

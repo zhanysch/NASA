@@ -26,8 +26,8 @@ class ApodViewModel(private val service : NasaInteractor, private val repository
         }
     }
 
-    fun getContentTw(): LiveData<List<ImageOfTheDayModel>> {
+    fun getContentRoom(): LiveData<List<ImageOfTheDayModel>> {
         return repository.getImageOfTheDayDb()
     }
-  fun getContent() = repository.getImageOfTheDayDb()
+
 }

@@ -62,7 +62,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/techproject2" />
+                    android:src="@drawable/aliens" />
 
                 <TextView
                     android:id="@+id/textofImage"
@@ -115,14 +115,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/exoplanet" />
+                    android:src="@drawable/mars" />
 
                 <TextView
                     android:id="@+id/textofExoplanet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/gilroy_bold"
-                    android:text="Exoplanets"
+                    android:text="Mars"
                     android:textColor="@color/colorWhite"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent" />

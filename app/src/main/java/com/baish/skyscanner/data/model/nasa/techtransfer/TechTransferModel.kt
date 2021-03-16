@@ -14,7 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
 
-data class Json4Kotlin_Base (
+data class TechTransferModel (
 
 	@SerializedName("results") val results : List<List<String>>,
 	@SerializedName("count") val count : Int,

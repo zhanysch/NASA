@@ -38,10 +38,11 @@ class TechProjectFragment : Fragment() {
             binding?.techProTitle?.text = it.title
             binding?.techProExplanation?.text = it.description
             binding?.techProBenefits?.text = it.benefits
+            binding?.techName?.text = it.leadOrganization.name
+            binding?.techCity?.text = it.leadOrganization.city
+            binding?.techCoutnry?.text = it.leadOrganization.country
         })
-        vm.files.observe(viewLifecycleOwner, Observer {
-            Picasso.get().load(it.url).into(binding?.techprojectImage)
-        })
+
     }
 
 

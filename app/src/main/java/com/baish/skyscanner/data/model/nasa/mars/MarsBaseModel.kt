@@ -15,9 +15,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
-@Entity  ///???
-data class MarsBaseModel<T> (
+@Entity
+data class MarsBaseModel(
     @PrimaryKey(autoGenerate = true)
-	val id: Int,  //by self added due of the error
+	val id: Int,
 	@SerializedName("photos") val photos : List<Photos>
 )

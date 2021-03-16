@@ -35,18 +35,13 @@ class ApodFragment : Fragment() {
         vm.loadImage()
         binding?.recyclerApod?.adapter = adapterAPOD
 
-
     }
 
     private fun setupApod() {
         val snapHelper : SnapHelper = LinearSnapHelper()
-      /*  snapHelper.attachToRecyclerView(binding?.recyclerApod)
-        vm.image.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
-            adapterAPOD.submitList(it)
+        snapHelper.attachToRecyclerView(binding?.recyclerApod)
+        vm.getContentRoom().observe(viewLifecycleOwner, Observer {
             binding?.progresBar?.visibility = View.VISIBLE
-        })
-*/
-        vm.getContentTw().observe(viewLifecycleOwner, Observer {
             adapterAPOD.submitList(it)
         })
 
