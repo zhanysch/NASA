@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:foreground="?attr/selectableItemBackground"
+    android:background="#2A292B">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/recyclermainimage"
+        android:layout_width="280dp"
+        android:background="@drawable/recycler_corn"
+        android:layout_height="213dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/recyclermaintext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/gilroy_bold"
+        android:hint="blablabla"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recyclermainimage" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,10 +2,7 @@ package com.baish.skyscanner.data.db
 
 import androidx.lifecycle.LiveData
 import androidx.paging.PagingSource
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.baish.skyscanner.data.model.nasa.imageofday.ImageOfTheDayModel
 import com.baish.skyscanner.data.model.nasa.mars.Photos
 
@@ -24,6 +21,9 @@ interface NasaDao {
 
     @Query("SELECT * FROM Photos")
     fun getAll(): PagingSource<Int, Photos>
+
+    @Update
+    fun update(item : Photos)
 
     @Query("DELETE FROM Photos")
     suspend fun deleteALL()

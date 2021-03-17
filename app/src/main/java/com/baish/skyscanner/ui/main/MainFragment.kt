@@ -7,9 +7,14 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearSnapHelper
+import androidx.recyclerview.widget.SnapHelper
 import com.baish.skyscanner.R
 import com.baish.skyscanner.data.common.BaseFragment
 import com.baish.skyscanner.databinding.FragmentMainBinding
+import com.baish.skyscanner.ui.main.apod.ApodRecyclerAdapter
+import com.baish.skyscanner.ui.main.apod.ApodViewModel
+import com.baish.skyscanner.utils.setCornerRadius
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -17,7 +22,8 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class MainFragment : Fragment() {
 
     var binding: FragmentMainBinding? = null
-
+    private val vm by viewModel<MainViewModel>()
+    private val adapterMain by lazy { MainRecycler() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,50 +31,61 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         binding = FragmentMainBinding.inflate(layoutInflater)
-
         return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupListeners()
+        setupRecyclerMain()
+        vm.loadItemsMain()
+        binding?.recyclerMain?.adapter = adapterMain
+        cutImages()
+    }
+
+    private fun setupRecyclerMain() {
+        val snapHelper: SnapHelper = LinearSnapHelper()
+        snapHelper.attachToRecyclerView(binding?.recyclerMain)
+        vm.getContentRoomMain().observe(viewLifecycleOwner, Observer {
+            adapterMain.submitList(it)
+        })
 
     }
 
     private fun setupListeners() {
-        binding?.apod?.setOnClickListener {
+        binding?.recyclerMain?.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_apodFragment)
         }
 
-        binding?.constrImage?.setOnClickListener {
+        binding?.techport?.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_techProjectFragment)
         }
 
-       binding?.constrExoplanet?.setOnClickListener {
+        binding?.constrMars?.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_marsFragment)
-       }
+        }
         menuClicks()
     }
 
 
     private fun menuClicks() {
         binding?.toolbar?.toolbar?.setOnMenuItemClickListener {
-            when(it.itemId){
+            when (it.itemId) {
 
-                R.id.conact ->{
+                R.id.conact -> {
                     val client = Intent(Intent.ACTION_SENDTO).apply {
                         data = Uri.parse("mailto:zhanysch@gmai.com")
                     }
-                    startActivity(Intent.createChooser(client,"contact"))
+                    startActivity(Intent.createChooser(client, "contact"))
                     return@setOnMenuItemClickListener true
                 }
 
-                R.id.FAQ ->{
+                R.id.FAQ -> {
                     findNavController().navigate(R.id.action_mainFragment_to_faqFragment)
                     return@setOnMenuItemClickListener true
                 }
 
-                R.id.terms ->{
+                R.id.terms -> {
                     findNavController().navigate(R.id.action_mainFragment_to_termsConditionsFragment)
                     return@setOnMenuItemClickListener true
                 }
@@ -77,9 +94,43 @@ class MainFragment : Fragment() {
                     findNavController().navigate(R.id.action_mainFragment_to_privacyFragment)
                     return@setOnMenuItemClickListener true
                 }
+
+                R.id.features -> {
+                    findNavController().navigate(R.id.action_mainFragment_to_featuresFragment)
+                    return@setOnMenuItemClickListener true
+                }
                 else -> super.onOptionsItemSelected(it)
             }
         }
+    }
+
+    private fun cutImages() {
+        val radius = resources.getDimension(R.dimen.mtrl_slider_thumb_radius)
+        binding?.imageTechport?.setCornerRadius(
+            topRight = radius,
+            topLeft = radius,
+            bottomRight = radius,
+            bottomLeft = radius
+        )
+        binding?.imageMars?.setCornerRadius(
+            topRight = radius,
+            topLeft = radius,
+            bottomRight = radius,
+            bottomLeft = radius
+        )
+        binding?.image?.setCornerRadius(
+            topRight = radius,
+            topLeft = radius,
+            bottomRight = radius,
+            bottomLeft = radius
+        )
+        binding?.imageTransfer?.setCornerRadius(
+            topRight = radius,
+            topLeft = radius,
+            bottomRight = radius,
+            bottomLeft = radius
+        )
+
     }
 
     override fun onDestroyView() {

@@ -32,8 +32,6 @@ class NasaRepositoryImpl(private val network : NasaService, private val db : App
             Log.d("Asdadasd", e.message?:"")
             e.printStackTrace()
         }
-
-
     }
 
     override fun getImageOfTheDayDb() = db.getContentDao().getContent()
@@ -48,15 +46,6 @@ class NasaRepositoryImpl(private val network : NasaService, private val db : App
         ).liveData
     }
 
-    /*@ExperimentalPagingApi
-    override fun getPagingResult(): LiveData<PagingData<Photos>>{
-        val pagingSourceFactory = {db.getContentDao().getAll()}
-        return  Pager(
-            config = PagingConfig(pageSize = PAGE_SIZE, enablePlaceholders = false),
-        remoteMediator =  PagingMediator(network,db),
-            pagingSourceFactory = pagingSourceFactory
-        ).liveData
-    }*/
 
     companion object{
         const val  PAGE_SIZE = 20
