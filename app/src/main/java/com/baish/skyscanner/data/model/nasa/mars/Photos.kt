@@ -24,5 +24,5 @@ data class Photos(
     @SerializedName("img_src") val img_src: String,
     @SerializedName("earth_date") val earth_date: String,
     @SerializedName("rover") val rover: Rover,
-    var isChecked: Boolean,
+    var isChecked: Boolean = false,
 )

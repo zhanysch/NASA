@@ -1,15 +1,21 @@
 package com.baish.skyscanner.data.remote
 
-import com.baish.skyscanner.data.model.nasa.techproject.TechProjectModel
 import com.baish.skyscanner.data.model.nasa.imageofday.ImageOfTheDayModel
 import com.baish.skyscanner.data.model.nasa.mars.MarsBaseModel
-import com.baish.skyscanner.data.model.nasa.mars.Photos
+import com.baish.skyscanner.data.model.nasa.techproject.TechProjectModel
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
+import retrofit2.http.Url
+
 
 interface NasaService {
+
+
+ /*   @GET
+    fun getImagesandVideo(@Url url: String?): Call<Users?>?*/
+
 
     @GET("planetary/apod")
     suspend fun getImage(
@@ -33,7 +39,7 @@ interface NasaService {
         @Query("sol") sol: Int,
         @Query("page") page: Int,
         @Query("api_key") api_key: String,
-        ) : MarsBaseModel
+    ) : MarsBaseModel
 
     //https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=1&api_key=EnKUTj7VDqVE0Cnu63SCYny69JzzTllJdhzVCmZb
 

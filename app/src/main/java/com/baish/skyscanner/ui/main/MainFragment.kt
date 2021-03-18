@@ -23,7 +23,9 @@ class MainFragment : Fragment() {
 
     var binding: FragmentMainBinding? = null
     private val vm by viewModel<MainViewModel>()
-    private val adapterMain by lazy { MainRecycler() }
+    private val adapterMain by lazy { MainRecycler(){
+        findNavController().navigate(R.id.action_mainFragment_to_apodFragment)
+    } }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -53,10 +55,6 @@ class MainFragment : Fragment() {
     }
 
     private fun setupListeners() {
-        binding?.recyclerMain?.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_apodFragment)
-        }
-
         binding?.techport?.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_techProjectFragment)
         }

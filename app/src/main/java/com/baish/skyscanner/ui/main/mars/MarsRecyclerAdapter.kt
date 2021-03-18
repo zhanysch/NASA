@@ -50,6 +50,7 @@ class MarsViewHolder(private val binding: MarsRecycleritemBinding,private val vm
 
         binding.checkMars.setOnCheckedChangeListener { buttonView, isChecked ->
           item?.isChecked = isChecked
+
             item?.let { vm.update(it) }
         }
         if (item != null) {

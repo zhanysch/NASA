@@ -11,10 +11,10 @@ import com.baish.skyscanner.databinding.MainRecycleritemBinding
 import com.baish.skyscanner.utils.setCornerRadius
 import com.squareup.picasso.Picasso
 
-class MainRecycler : ListAdapter<ImageOfTheDayModel, MainViewHolder>(diffUtil) {
+class MainRecycler(private val listener: ()-> Unit) : ListAdapter<ImageOfTheDayModel, MainViewHolder>(diffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
-        return MainViewHolder.create(parent)
+        return MainViewHolder.create(parent,listener)
     }
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
@@ -43,7 +43,7 @@ class MainRecycler : ListAdapter<ImageOfTheDayModel, MainViewHolder>(diffUtil) {
     }
 }
 
-class MainViewHolder(private val binding: MainRecycleritemBinding) :
+class MainViewHolder(private val binding: MainRecycleritemBinding, private val listener: () -> Unit) :
     RecyclerView.ViewHolder(binding.root) {
     fun bind(item: ImageOfTheDayModel) {
 
@@ -58,14 +58,18 @@ class MainViewHolder(private val binding: MainRecycleritemBinding) :
             bottomRight = radius,
             bottomLeft = radius
         )
+
+        binding.parentView.setOnClickListener {
+            listener.invoke()
+        }
     }
 
     companion object {
-        fun create(parent: ViewGroup): MainViewHolder {
+        fun create(parent: ViewGroup, listener: () -> Unit): MainViewHolder {
             val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.main_recycleritem, parent, false)
             val binding = MainRecycleritemBinding.bind(view)
-            return MainViewHolder(binding)
+            return MainViewHolder(binding,listener)
         }
     }
 }

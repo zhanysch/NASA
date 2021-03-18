@@ -8,6 +8,9 @@ import retrofit2.Response
 interface NasaInteractor{
     suspend fun loadImagesOfDay(count : Int, thumbs : Boolean) : Response<List<ImageOfTheDayModel>>
     suspend fun loadTechProjects(id_parameter : Int) : Response <TechProjectModel>
+/*
+    suspend fun getImageandVideoLibrary():Response<"fsgsdgsdgsdgsgsdgs">
+*/
 
 }
 
@@ -19,4 +22,8 @@ class NasaInteractorImpl(private val service : NasaService) : NasaInteractor {
     override suspend fun loadTechProjects(id_parameter: Int): Response<TechProjectModel> {
         return service.getTechProject(id_parameter = id_parameter, api_key = "EnKUTj7VDqVE0Cnu63SCYny69JzzTllJdhzVCmZb")
     }
+
+   /* override suspend fun getImageandVideoLibrary(): Response<???> {
+        return service.getImagesandVideo("https://images-api.nasa.gov/search?q=satellite")
+    }*/
 }
