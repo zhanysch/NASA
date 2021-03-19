@@ -18,11 +18,12 @@ class ImageViewModel(private val service : NasaInteractor) : ViewModel(){
     val image = MutableLiveData<List<Items>>()
 
 
+
     fun startSearch(query: String){
         viewModelScope.launch {
             kotlin.runCatching {
-                /*val imageChek = service.getImageandVideoLibrary(title = query)
-                if (imageChek.isSuccessful) image.postValue(imageChek.body())*/
+                val imageChek = service.getImageandVideoLibrary(title = query)
+                if (imageChek.isSuccessful) search.postValue(imageChek.body()?.collection)
             }.onFailure {
                 Log.d("sdgsdg","dgdgf")
             }

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
@@ -33,13 +34,19 @@ class ImageandVideoFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         updateSeacrhRepository()
+        setupRecycler()
 
     }
 
+    private fun setupRecycler() {
+        vm.search.observe(viewLifecycleOwner, Observer {
+            adapterSearch.submitList(it.items)
+        })
+    }
 
 
     private fun updateSeacrhRepository() {
-        binding?.etSearch?.text?.trim().let {
+        binding?.etSearch?.doAfterTextChanged {
             if (it?.isNotEmpty()!!)
                 search(it.toString())
         }
@@ -48,11 +55,7 @@ class ImageandVideoFragment : Fragment(){
         searchJob?.cancel()
         searchJob = lifecycleScope.launch {
             vm.startSearch(query)
-           /* vm.search.observe(viewLifecycleOwner, Observer {
-                vm.startSearch(query)
-                adapterSearch.submitList(it)
 
-            })*/
 
         }
     }

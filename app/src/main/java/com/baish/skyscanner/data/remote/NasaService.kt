@@ -18,7 +18,7 @@ interface NasaService {
     @GET
    suspend fun getImagesandVideo(
         @Url url: String?,
-    @Query("s")title: String
+    @Query("q")title: String
     ): Response<NasaImageandVideo>
 
 

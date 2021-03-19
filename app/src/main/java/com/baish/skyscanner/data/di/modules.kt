@@ -11,6 +11,7 @@ import com.baish.skyscanner.ui.main.mainside.MainViewModel
 import com.baish.skyscanner.ui.main.apod.ApodViewModel
 import com.baish.skyscanner.ui.main.mars.MarsViewModel
 import com.baish.skyscanner.ui.main.techproject.TechProjectViewModel
+import com.baish.skyscanner.ui.main.videoandimage.ImageViewModel
 import com.baish.skyscanner.ui.menu.features.FeaturesViewModel
 import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -23,6 +24,7 @@ val viewModelModule: Module = module {
     viewModel { TechProjectViewModel(get()) }
     viewModel { MarsViewModel(get(),get()) }
     viewModel { FeaturesViewModel(get(),get()) }
+    viewModel { ImageViewModel(get()) }
 }
 val dbModule : Module = module {
     single { AppDataBase.getInstanceDB(androidApplication()) }

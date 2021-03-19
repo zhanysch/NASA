@@ -25,7 +25,7 @@ class NasaInteractorImpl(private val service : NasaService) : NasaInteractor {
     }
 
     override suspend fun getImageandVideoLibrary(title: String): Response<NasaImageandVideo> {
-        return  service.getImagesandVideo("https://images-api.nasa.gov/search?q=satellite",title)
+        return  service.getImagesandVideo("https://images-api.nasa.gov/search",title)
     }
 
 
