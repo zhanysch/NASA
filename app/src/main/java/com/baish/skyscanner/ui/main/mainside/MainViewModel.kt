@@ -1,4 +1,4 @@
-package com.baish.skyscanner.ui.main
+package com.baish.skyscanner.ui.main.mainside
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -13,6 +13,7 @@ import kotlinx.coroutines.launch
 class MainViewModel(private val service : NasaInteractor, private val repository: NasaRepository): ViewModel() {
 
     val image = MutableLiveData<List<ImageOfTheDayModel>>()
+
 
     fun loadItemsMain(){
         viewModelScope.launch {

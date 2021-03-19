@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="#2A292B">
 
     <include
@@ -72,148 +72,173 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/recyclerConstr"
-                android:text="CATEGORY"
-                android:textSize="24sp"
                 android:fontFamily="@font/gilroy_bold"
-                android:textColor="@color/colorWhite"/>
-
-
-
-             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/techport"
-                app:layout_constraintTop_toBottomOf="@id/textcategory"
+                android:text="CATEGORY"
+                android:textColor="@color/colorWhite"
+                android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_width="172dp"
-                android:layout_height="173dp">
+                app:layout_constraintTop_toBottomOf="@id/recyclerConstr" />
 
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/imageTechport"
-                    android:src="@drawable/nasa_man"
-                    android:scaleType="centerCrop"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:background="@drawable/corner_profile"/>
-                <TextView
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constrOne"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/textcategory">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/techport"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/imageTechport"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintEnd_toStartOf="@id/constrMars"
+                    app:layout_constraintHorizontal_chainStyle="spread"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="16sp"
-                    android:layout_marginTop="5dp"
-                    android:fontFamily="@font/gilroy_regular"
-                    android:text="TECHPROJECT"/>
+                    app:layout_constraintTop_toTopOf="parent">
 
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageTechport"
+                        android:layout_width="170dp"
+                        android:layout_height="150dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/nasa_man"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/gilroy_regular"
+                        android:text="TECHPROJECT"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/imageTechport" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constrMars"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/techport"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageMars"
+                        android:layout_width="170dp"
+                        android:layout_height="150dp"
+                        android:background="@drawable/corner_profile"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/mars"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/gilroy_regular"
+                        android:text="MARS"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/imageMars" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constrMars"
-                android:layout_width="172dp"
-                android:layout_height="173dp"
-                app:layout_constraintTop_toBottomOf="@id/textcategory"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp">
+                app:layout_constraintTop_toBottomOf="@id/constrOne">
 
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/imageMars"
-                    android:src="@drawable/mars"
-                    android:scaleType="centerCrop"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:background="@drawable/corner_profile"/>
-
-                <TextView
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/Images"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/imageMars"
+                    android:clickable="true"
+                    android:focusable="true"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="16sp"
-                    android:layout_marginTop="5dp"
-                    android:fontFamily="@font/gilroy_regular"
-                    android:text="MARS"/>
+                    app:layout_constraintEnd_toStartOf="@id/constrTransfer"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/image"
+                        android:layout_width="170dp"
+                        android:layout_height="150dp"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:src="@drawable/video"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/gilroy_regular"
+                        android:text="IMAGES"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/image" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/Images"
-                app:layout_constraintTop_toBottomOf="@id/techport"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_width="172dp"
-                android:layout_height="173dp">
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/image"
-                    android:src="@drawable/video"
-                    android:scaleType="centerCrop"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:background="@drawable/corner_profile"/>
-                <TextView
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constrTransfer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/image"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="16sp"
-                    android:layout_marginTop="5dp"
-                    android:fontFamily="@font/gilroy_regular"
-                    android:text="IMAGES"/>
-
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constrTransfer"
-                android:layout_width="172dp"
-                android:layout_height="173dp"
-                app:layout_constraintTop_toBottomOf="@id/constrMars"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp">
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/imageTransfer"
-                    android:src="@drawable/spacex"
-                    android:scaleType="centerCrop"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintStart_toEndOf="@id/Images"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:background="@drawable/corner_profile"/>
+                    >
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/imageTransfer"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="16sp"
-                    android:layout_marginTop="5dp"
-                    android:fontFamily="@font/gilroy_regular"
-                    android:text="MARS"/>
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageTransfer"
+                        android:layout_width="170dp"
+                        android:layout_height="150dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:background="@drawable/corner_profile"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/spacex"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/gilroy_regular"
+                        android:text="MARS"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/imageTransfer" />
 
 
-
-
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 
 

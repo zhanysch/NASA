@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/image_fragm_onboard"
+        android:id="@+id/imageOnboard"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:scaleType="centerCrop"
@@ -20,7 +20,7 @@
         android:layout_height="220dp"
         android:alpha="0.4"
         android:background="@drawable/bg_shade"
-        app:layout_constraintBottom_toBottomOf="@id/image_fragm_onboard" />
+        app:layout_constraintBottom_toBottomOf="@id/imageOnboard" />
 
 
     <TextView

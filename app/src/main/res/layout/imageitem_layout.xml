@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingBottom="2dp"
+    android:background="#5E5B61"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:id="@+id/imageShow"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:scaleType="centerCrop"
+        android:padding="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:id="@+id/titlefMovie"
+        app:layout_constraintStart_toEndOf="@id/imageShow"
+        android:layout_width="wrap_content"
+        android:hint="Name of film"
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="5dp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:layout_marginStart="20sp"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/titlefMovie"
+        app:layout_constraintStart_toEndOf="@id/imageShow"
+        android:hint="2002"
+        android:textSize="14sp"
+        android:textColor="@android:color/black"
+        android:textStyle="italic"
+        android:layout_marginStart="20sp"
+        android:layout_marginTop="10sp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

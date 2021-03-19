@@ -70,6 +70,7 @@ class PagingMediator(
 
                 db.getPagigngKeysDao().insertAll(keys)
                 db.getContentDao().insert(apiResponse.photos)
+
             }
 
             return MediatorResult.Success(endOfPaginationReached = endofPaginationReached)

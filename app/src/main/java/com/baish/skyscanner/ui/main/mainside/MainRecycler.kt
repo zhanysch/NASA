@@ -32,10 +32,7 @@ class MainRecycler(private val listener: ()-> Unit) : ListAdapter<ImageOfTheDayM
                         oldItem.url == newItem.url
             }
 
-            override fun areContentsTheSame(
-                oldItem: ImageOfTheDayModel,
-                newItem: ImageOfTheDayModel,
-            ): Boolean {
+            override fun areContentsTheSame(oldItem: ImageOfTheDayModel, newItem: ImageOfTheDayModel, ): Boolean {
                 return oldItem == newItem
             }
 
@@ -51,7 +48,7 @@ class MainViewHolder(private val binding: MainRecycleritemBinding, private val l
         Picasso.get().load(item.url).placeholder(R.drawable.nasa_place)
             .into(binding.recyclermainimage)
 
-        val radius = itemView.context.resources.getDimension(R.dimen.mtrl_slider_thumb_radius)
+        val radius = itemView.context.resources.getDimension(R.dimen.mtrl_btn_corner_radius)
         binding.recyclermainimage.setCornerRadius(
             topRight = radius,
             topLeft = radius,

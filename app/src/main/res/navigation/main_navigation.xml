@@ -32,16 +32,12 @@
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.baish.skyscanner.ui.main.MainFragment"
+        android:name="com.baish.skyscanner.ui.main.mainside.MainFragment"
         tools:layout="@layout/fragment_main"
         android:label="MainFragment" >
         <action
             android:id="@+id/action_mainFragment_to_apodFragment"
             app:destination="@id/apodFragment"
-            app:enterAnim="@anim/fragment_close_enter"
-            app:exitAnim="@anim/fragment_close_exit"
-            app:popEnterAnim="@anim/fragment_fade_enter"
-            app:popExitAnim="@anim/fragment_fade_exit"
             app:popUpTo="@id/mainFragment" />
         <action
             android:id="@+id/action_mainFragment_to_faqFragment"
@@ -61,6 +57,9 @@
         <action
             android:id="@+id/action_mainFragment_to_featuresFragment"
             app:destination="@id/featuresFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_imageandVideoFragment"
+            app:destination="@id/imageandVideoFragment" />
     </fragment>
     <fragment
         android:id="@+id/apodFragment"
@@ -95,6 +94,11 @@
     <fragment
         android:id="@+id/featuresFragment"
         tools:layout="@layout/features_layout"
-        android:name="com.baish.skyscanner.ui.menu.FeaturesFragment"
+        android:name="com.baish.skyscanner.ui.menu.features.FeaturesFragment"
         android:label="FeaturesFragment" />
+    <fragment
+        android:id="@+id/imageandVideoFragment"
+        tools:layout="@layout/image_videllayout"
+        android:name="com.baish.skyscanner.ui.main.videoandimage.ImageandVideoFragment"
+        android:label="ImageandVideoFragment" />
 </navigation>

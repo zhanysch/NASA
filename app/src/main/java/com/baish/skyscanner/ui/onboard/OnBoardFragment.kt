@@ -8,19 +8,26 @@ import androidx.fragment.app.Fragment
 import com.baish.skyscanner.R
 import com.baish.skyscanner.data.common.BaseFragment
 import com.baish.skyscanner.data.model.onboard.OnBoardModel
-import kotlinx.android.synthetic.main.fragment_onboard.*
+import com.baish.skyscanner.databinding.FragmentMainBinding
+import com.baish.skyscanner.databinding.FragmentOnboardBinding
+
 
 class OnBoardFragment : Fragment(){
 
-    override fun onCreateView(
+    var binding: FragmentOnboardBinding? = null
+
+   override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_onboard,container,false)
+
+       binding = FragmentOnboardBinding.inflate(layoutInflater)
+       return binding?.root
+
     }
 
-    //override fun resID() = R.layout.fragment_onboard
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -29,8 +36,8 @@ class OnBoardFragment : Fragment(){
 
     private fun setupViews() {
         val data = arguments?.get(DATA_ID) as OnBoardModel
-        title.text = data.title
-        image_fragm_onboard.setImageResource(data.image)
+        binding?.title?.text = data.title
+        binding?.imageOnboard?.setImageResource(data.image)
     }
 
     companion object {

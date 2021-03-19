@@ -12,18 +12,23 @@ import androidx.viewpager.widget.ViewPager
 import com.baish.skyscanner.R
 import com.baish.skyscanner.data.local.PreferenceHelper
 import com.baish.skyscanner.data.model.onboard.OnBoardModel
-import kotlinx.android.synthetic.main.fragment_mainonboard.*
+import com.baish.skyscanner.databinding.FragmentMainBinding
+import com.baish.skyscanner.databinding.FragmentMainonboardBinding
+
 
 class OnBoardMainFragment : Fragment() {
 
     private val list = arrayListOf<Fragment>()
+
+    var binding: FragmentMainonboardBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_mainonboard,container,false)
+        binding = FragmentMainonboardBinding.inflate(layoutInflater)
+        return binding?.root
     }
 
 
@@ -36,7 +41,7 @@ class OnBoardMainFragment : Fragment() {
 
 
     private fun setupListeners() {
-        onBoardViewPager.setOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+        binding?.onBoardViewPager?.setOnPageChangeListener(object : ViewPager.OnPageChangeListener {
 
             override fun onPageScrollStateChanged(state: Int) {}
 
@@ -49,24 +54,25 @@ class OnBoardMainFragment : Fragment() {
 
             override fun onPageSelected(position: Int) {
                 if (isLastPage(position)) {
-                    tvNext.text = "Finish"
+                    binding?.tvNext?.text = "Finish"
                 } else {
-                    tvNext.text = "Continue"
+                    binding?.tvNext?.text = "Continue"
                 }
             }
 
         })
 
-        tvNext.setOnClickListener {
-            if (isLastPage(onBoardViewPager.currentItem)) {
+        binding?.tvNext?.setOnClickListener {
+            if (binding?.onBoardViewPager?.currentItem?.let { it1 -> isLastPage(it1) } == true) {
                 PreferenceHelper.setIsFirstLaunch()
                findNavController().navigate(R.id.action_onBoardMainFragment_to_mainFragment)
             } else {
-                onBoardViewPager.currentItem += 1
+                binding?.onBoardViewPager?.currentItem =
+                    binding?.onBoardViewPager?.currentItem?.plus(1)!!
             }
         }
 
-        tvSkip.setOnClickListener {
+        binding?.tvSkip?.setOnClickListener {
             PreferenceHelper.setIsFirstLaunch()
             findNavController().navigate(R.id.action_onBoardMainFragment_to_mainFragment)
         }
@@ -76,7 +82,7 @@ class OnBoardMainFragment : Fragment() {
 
     private fun setupViewPager() {
         val adapter = OnBoardAdapter(childFragmentManager)
-        onBoardViewPager.adapter = adapter
+        binding?.onBoardViewPager?.adapter = adapter
         list.add(
                 OnBoardFragment.getInstance(
                         OnBoardModel(
@@ -100,6 +106,11 @@ class OnBoardMainFragment : Fragment() {
                         )))
 
         adapter.update(list)
-        onBoardTabLayout.setupWithViewPager(onBoardViewPager)
+        binding?.onBoardTabLayout?.setupWithViewPager(binding?.onBoardViewPager)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
     }
 }

@@ -1,10 +1,6 @@
-package com.baish.skyscanner.data.model.nasa.imageofday
+package com.baish.skyscanner.data.model.nasa.nasaimage
 
-import android.os.Parcelable
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-import kotlinx.android.parcel.Parcelize
 
 /*
 Copyright (c) 2021 Kotlin com.baish.skyscanner.data.model.nasa.nasaimage.Data Classes Generated from JSON powered by http://www.json2kotlin.com
@@ -17,17 +13,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
-@Parcelize
-@Entity
-data class ImageOfTheDayModel (
-	@PrimaryKey(autoGenerate = true)
-	val id : Int,
-	@SerializedName("copyright") val copyright : String?,
-	@SerializedName("date") val date : String,
-	@SerializedName("explanation") val explanation : String,
-	@SerializedName("hdurl") val hdurl : String?,
-	@SerializedName("media_type") val media_type : String,
-	@SerializedName("service_version") val service_version : String,
+
+data class Data (
+
+	@SerializedName("center") val center : String,
+	@SerializedName("date_created") val date_created : String,
+	@SerializedName("keywords") val keywordswords : List<String>,
+	@SerializedName("description") val description : String,
+	@SerializedName("description_508") val description_508 : String,
 	@SerializedName("title") val title : String,
-	@SerializedName("url") val url : String
-) : Parcelable
+	@SerializedName("location") val location : String,
+	@SerializedName("media_type") val media_type : String,
+	@SerializedName("photographer") val photographer : String,
+	@SerializedName("nasa_id") val nasa_id : String
+)

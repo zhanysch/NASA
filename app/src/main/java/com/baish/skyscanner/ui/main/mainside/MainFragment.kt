@@ -1,4 +1,4 @@
-package com.baish.skyscanner.ui.main
+package com.baish.skyscanner.ui.main.mainside
 
 import android.content.Intent
 import android.net.Uri
@@ -10,13 +10,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.SnapHelper
 import com.baish.skyscanner.R
-import com.baish.skyscanner.data.common.BaseFragment
 import com.baish.skyscanner.databinding.FragmentMainBinding
-import com.baish.skyscanner.ui.main.apod.ApodRecyclerAdapter
-import com.baish.skyscanner.ui.main.apod.ApodViewModel
+import com.baish.skyscanner.ui.main.MainRecycler
 import com.baish.skyscanner.utils.setCornerRadius
-import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.fragment_main.*
+
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainFragment : Fragment() {
@@ -62,6 +59,9 @@ class MainFragment : Fragment() {
         binding?.constrMars?.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_marsFragment)
         }
+        binding?.Images?.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_imageandVideoFragment)
+        }
         menuClicks()
     }
 
@@ -103,7 +103,7 @@ class MainFragment : Fragment() {
     }
 
     private fun cutImages() {
-        val radius = resources.getDimension(R.dimen.mtrl_slider_thumb_radius)
+        val radius = resources.getDimension(R.dimen.mtrl_btn_corner_radius)
         binding?.imageTechport?.setCornerRadius(
             topRight = radius,
             topLeft = radius,

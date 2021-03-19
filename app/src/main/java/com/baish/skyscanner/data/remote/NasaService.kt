@@ -2,7 +2,9 @@ package com.baish.skyscanner.data.remote
 
 import com.baish.skyscanner.data.model.nasa.imageofday.ImageOfTheDayModel
 import com.baish.skyscanner.data.model.nasa.mars.MarsBaseModel
+import com.baish.skyscanner.data.model.nasa.nasaimage.NasaImageandVideo
 import com.baish.skyscanner.data.model.nasa.techproject.TechProjectModel
+import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -13,8 +15,11 @@ import retrofit2.http.Url
 interface NasaService {
 
 
- /*   @GET
-    fun getImagesandVideo(@Url url: String?): Call<Users?>?*/
+    @GET
+   suspend fun getImagesandVideo(
+        @Url url: String?,
+    @Query("s")title: String
+    ): Response<NasaImageandVideo>
 
 
     @GET("planetary/apod")

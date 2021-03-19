@@ -2,15 +2,16 @@ package com.baish.skyscanner.data.interactor
 
 import com.baish.skyscanner.data.model.nasa.techproject.TechProjectModel
 import com.baish.skyscanner.data.model.nasa.imageofday.ImageOfTheDayModel
+import com.baish.skyscanner.data.model.nasa.nasaimage.NasaImageandVideo
 import com.baish.skyscanner.data.remote.NasaService
+import retrofit2.Call
 import retrofit2.Response
 
 interface NasaInteractor{
     suspend fun loadImagesOfDay(count : Int, thumbs : Boolean) : Response<List<ImageOfTheDayModel>>
     suspend fun loadTechProjects(id_parameter : Int) : Response <TechProjectModel>
-/*
-    suspend fun getImageandVideoLibrary():Response<"fsgsdgsdgsdgsgsdgs">
-*/
+    suspend fun getImageandVideoLibrary(title : String):Response<NasaImageandVideo>
+
 
 }
 
@@ -23,7 +24,12 @@ class NasaInteractorImpl(private val service : NasaService) : NasaInteractor {
         return service.getTechProject(id_parameter = id_parameter, api_key = "EnKUTj7VDqVE0Cnu63SCYny69JzzTllJdhzVCmZb")
     }
 
-   /* override suspend fun getImageandVideoLibrary(): Response<???> {
-        return service.getImagesandVideo("https://images-api.nasa.gov/search?q=satellite")
-    }*/
+    override suspend fun getImageandVideoLibrary(title: String): Response<NasaImageandVideo> {
+        return  service.getImagesandVideo("https://images-api.nasa.gov/search?q=satellite",title)
+    }
+
+
+    /* override suspend fun getImageandVideoLibrary(): Response<???> {
+         return service.getImagesandVideo("https://images-api.nasa.gov/search?q=satellite")
+     }*/
 }
