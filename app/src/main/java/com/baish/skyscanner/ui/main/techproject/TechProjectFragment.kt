@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.baish.skyscanner.databinding.TechprojecktLayoutBinding
 import com.squareup.picasso.Picasso
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -31,6 +32,9 @@ class TechProjectFragment : Fragment() {
         vm.loadProjects()
         vm.projectFiles
         vm.files
+        binding?.btnBack?.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
     private fun setupTechProjects() {

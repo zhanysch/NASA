@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearSnapHelper
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.SnapHelper
 import com.baish.skyscanner.R
 import com.baish.skyscanner.databinding.FragmentMainBinding
 import com.baish.skyscanner.ui.main.MainRecycler
+import com.baish.skyscanner.utils.ItemOffsetDecoration
 import com.baish.skyscanner.utils.setCornerRadius
 
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -48,8 +50,16 @@ class MainFragment : Fragment() {
         vm.getContentRoomMain().observe(viewLifecycleOwner, Observer {
             adapterMain.submitList(it)
         })
-
+        binding?.recyclerMain?.addItemDecoration(
+            ItemOffsetDecoration(
+                itemLeftMargin = 10f,
+                itemRightMargin = 10f,
+                firstItemLeftMargin = 20f,
+                lastItemRightMargin = 20f
+            )
+        )
     }
+   
 
     private fun setupListeners() {
         binding?.techport?.setOnClickListener {
@@ -128,7 +138,6 @@ class MainFragment : Fragment() {
             bottomRight = radius,
             bottomLeft = radius
         )
-
     }
 
     override fun onDestroyView() {

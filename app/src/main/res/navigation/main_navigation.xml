@@ -9,7 +9,7 @@
         android:id="@+id/splashFragment"
         android:name="com.baish.skyscanner.ui.splash.SplashFragment"
         android:label="SplashFragment"
-        tools:layout="@layout/fragment_splash" >
+        tools:layout="@layout/fragment_splash">
         <action
             android:id="@+id/action_splashFragment_to_onBoardMainFragment"
             app:destination="@id/onBoardMainFragment"
@@ -33,72 +33,103 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.baish.skyscanner.ui.main.mainside.MainFragment"
-        tools:layout="@layout/fragment_main"
-        android:label="MainFragment" >
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainFragment_to_apodFragment"
             app:destination="@id/apodFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
             app:popUpTo="@id/mainFragment" />
         <action
             android:id="@+id/action_mainFragment_to_faqFragment"
-            app:destination="@id/faqFragment" />
+            app:destination="@id/faqFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left" />
         <action
             android:id="@+id/action_mainFragment_to_termsConditionsFragment"
-            app:destination="@id/termsConditionsFragment" />
+            app:destination="@id/termsConditionsFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left" />
         <action
             android:id="@+id/action_mainFragment_to_privacyFragment"
-            app:destination="@id/privacyFragment" />
+            app:destination="@id/privacyFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left" />
         <action
             android:id="@+id/action_mainFragment_to_techProjectFragment"
-            app:destination="@id/techProjectFragment" />
+            app:destination="@id/techProjectFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left" />
         <action
             android:id="@+id/action_mainFragment_to_marsFragment"
-            app:destination="@id/marsFragment" />
+            app:destination="@id/marsFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left" />
         <action
             android:id="@+id/action_mainFragment_to_featuresFragment"
-            app:destination="@id/featuresFragment" />
+            app:destination="@id/featuresFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left" />
         <action
             android:id="@+id/action_mainFragment_to_imageandVideoFragment"
-            app:destination="@id/imageandVideoFragment" />
+            app:destination="@id/imageandVideoFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left" />
     </fragment>
     <fragment
         android:id="@+id/apodFragment"
-        tools:layout="@layout/apod_layout"
         android:name="com.baish.skyscanner.ui.main.apod.ApodFragment"
-        android:label="ApodFragment" />
+        android:label="ApodFragment"
+        tools:layout="@layout/apod_layout" />
     <fragment
         android:id="@+id/faqFragment"
-        tools:layout="@layout/faq_layout"
         android:name="com.baish.skyscanner.ui.menu.FaqFragment"
-        android:label="FaqFragment" />
+        android:label="FaqFragment"
+        tools:layout="@layout/faq_layout" />
     <fragment
         android:id="@+id/termsConditionsFragment"
-        tools:layout="@layout/termsconditions_layout"
         android:name="com.baish.skyscanner.ui.menu.TermsConditionsFragment"
-        android:label="TermsConditionsFragment" />
+        android:label="TermsConditionsFragment"
+        tools:layout="@layout/termsconditions_layout" />
     <fragment
         android:id="@+id/privacyFragment"
-        tools:layout="@layout/privacy_layout"
         android:name="com.baish.skyscanner.ui.menu.PrivacyFragment"
-        android:label="PrivacyFragment" />
+        android:label="PrivacyFragment"
+        tools:layout="@layout/privacy_layout" />
     <fragment
         android:id="@+id/techProjectFragment"
-        tools:layout="@layout/techprojeckt_layout"
         android:name="com.baish.skyscanner.ui.main.techproject.TechProjectFragment"
-        android:label="TechProjectFragment" />
+        android:label="TechProjectFragment"
+        tools:layout="@layout/techprojeckt_layout" />
     <fragment
         android:id="@+id/marsFragment"
-        tools:layout="@layout/mars_layout"
         android:name="com.baish.skyscanner.ui.main.mars.MarsFragment"
-        android:label="MarsFragment" />
+        android:label="MarsFragment"
+        tools:layout="@layout/mars_layout" />
     <fragment
         android:id="@+id/featuresFragment"
-        tools:layout="@layout/features_layout"
         android:name="com.baish.skyscanner.ui.menu.features.FeaturesFragment"
-        android:label="FeaturesFragment" />
+        android:label="FeaturesFragment"
+        tools:layout="@layout/features_layout" />
     <fragment
         android:id="@+id/imageandVideoFragment"
-        tools:layout="@layout/image_videllayout"
         android:name="com.baish.skyscanner.ui.main.videoandimage.ImageandVideoFragment"
-        android:label="ImageandVideoFragment" />
+        android:label="ImageandVideoFragment"
+        tools:layout="@layout/image_videllayout">
+        <action
+            android:id="@+id/action_imageandVideoFragment_to_imageDetails2"
+            app:destination="@id/imageDetails2" />
+    </fragment>
+    <fragment
+        android:id="@+id/imageDetails2"
+        android:name="com.baish.skyscanner.ui.main.videoandimage.details.ImageDetails"
+        android:label="ImageDetails"
+        tools:layout="@layout/imagedetails_layout" >
+        <argument android:name="details"
+            app:argType="com.baish.skyscanner.data.model.nasa.nasaimage.Items"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+    </fragment>
+
 </navigation>

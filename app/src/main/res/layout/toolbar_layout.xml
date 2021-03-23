@@ -30,6 +30,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
             android:textColor="@color/colorWhite"
             android:fontFamily="@font/gilroy_bold"
             app:layout_constraintTop_toTopOf="parent"

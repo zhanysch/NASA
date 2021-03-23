@@ -1,6 +1,8 @@
 package com.baish.skyscanner.data.model.nasa.nasaimage
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 /*
 Copyright (c) 2021 Kotlin com.baish.skyscanner.data.model.nasa.nasaimage.Data Classes Generated from JSON powered by http://www.json2kotlin.com
@@ -13,10 +15,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
-
-data class Items (
-
-    @SerializedName("href") val href : String,
-    @SerializedName("links") val links : List<Links>,
-    @SerializedName("data") val data : List<Data>
-)
+@Parcelize
+data class Items(
+    var id: Int,
+    @SerializedName("href") val href: String,
+    @SerializedName("links") val links: List<Links>,
+    @SerializedName("data") val data: List<Data>,
+) : Parcelable
