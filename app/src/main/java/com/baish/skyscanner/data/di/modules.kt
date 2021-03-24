@@ -19,7 +19,7 @@ import org.koin.core.module.Module
 import org.koin.dsl.module
 
 val viewModelModule: Module = module {
-    viewModel { ApodViewModel(get(),get()) }
+    viewModel { ApodViewModel(get(),get(),get()) }
     viewModel { MainViewModel(get(),get()) }
     viewModel { TechProjectViewModel(get()) }
     viewModel { MarsViewModel(get(),get()) }

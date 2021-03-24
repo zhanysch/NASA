@@ -16,7 +16,7 @@ class ApodFragment : Fragment() {
     var binding: ApodLayoutBinding? = null
 
     private val vm by viewModel<ApodViewModel>()
-    private val adapterAPOD by lazy { ApodRecyclerAdapter() }
+    private val adapterAPOD by lazy { ApodRecyclerAdapter(vm) }
 
     override fun onCreateView(
         inflater: LayoutInflater,

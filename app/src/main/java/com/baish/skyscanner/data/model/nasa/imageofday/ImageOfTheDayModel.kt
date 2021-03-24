@@ -29,5 +29,6 @@ data class ImageOfTheDayModel (
 	@SerializedName("media_type") val media_type : String,
 	@SerializedName("service_version") val service_version : String,
 	@SerializedName("title") val title : String,
-	@SerializedName("url") val url : String
+	@SerializedName("url") val url : String,
+	var isChecked: Boolean = false,
 ) : Parcelable

@@ -96,6 +96,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:clickable="true"
+                    android:background="@drawable/buton_bg"
                     android:focusable="true"
                     app:layout_constraintEnd_toStartOf="@id/constrMars"
                     app:layout_constraintHorizontal_chainStyle="spread"
@@ -134,6 +135,7 @@
                     android:layout_height="wrap_content"
                     android:clickable="true"
                     android:focusable="true"
+                    android:background="@drawable/buton_bg"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/techport"
                     app:layout_constraintTop_toTopOf="parent">
@@ -178,6 +180,7 @@
                     android:layout_height="wrap_content"
                     android:clickable="true"
                     android:focusable="true"
+                    android:background="@drawable/buton_bg"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/constrTransfer"
                     app:layout_constraintTop_toTopOf="parent">
@@ -214,6 +217,7 @@
                     android:layout_height="wrap_content"
                     android:clickable="true"
                     android:focusable="true"
+                    android:background="@drawable/buton_bg"
                     app:layout_constraintStart_toEndOf="@id/Images"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"

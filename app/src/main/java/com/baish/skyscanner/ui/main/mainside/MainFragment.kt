@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.SnapHelper
 import com.baish.skyscanner.R
 import com.baish.skyscanner.databinding.FragmentMainBinding
 import com.baish.skyscanner.ui.main.MainRecycler
+import com.baish.skyscanner.ui.main.video.VideoActivity
 import com.baish.skyscanner.utils.ItemOffsetDecoration
 import com.baish.skyscanner.utils.setCornerRadius
 
@@ -62,6 +63,10 @@ class MainFragment : Fragment() {
    
 
     private fun setupListeners() {
+        binding?.constrTransfer?.setOnClickListener {
+            val intent = Intent(activity, VideoActivity::class.java)
+            startActivity(intent)
+        }
         binding?.techport?.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_techProjectFragment)
         }

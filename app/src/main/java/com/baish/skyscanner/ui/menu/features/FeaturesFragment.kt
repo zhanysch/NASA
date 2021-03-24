@@ -15,6 +15,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class FeaturesFragment : Fragment(){
     var binding: FeaturesLayoutBinding? = null
     private val adapterFeaturMars by lazy { FeaturMarsAdapter(vm) }
+    private val adapterLikeApod by lazy { FeaturesApodAdapter(vm)}
     private val vm by viewModel<FeaturesViewModel>()
 
     override fun onCreateView(
@@ -31,14 +32,17 @@ class FeaturesFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
        binding?.recyclerFeatures?.adapter = adapterFeaturMars
-
         setupVm()
+        binding?.recyclerFeatures?.adapter = adapterLikeApod
     }
 
     @ExperimentalPagingApi
     private fun setupVm() {
         vm.getPagingMarsLikes().observe(viewLifecycleOwner, Observer {
             adapterFeaturMars.submitList(it)
+        })
+        vm.getLikesApod().observe(viewLifecycleOwner, Observer {
+            adapterLikeApod.submitList(it)
         })
     }
 }

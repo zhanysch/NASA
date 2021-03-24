@@ -19,7 +19,8 @@ interface NasaRepository{
     @ExperimentalPagingApi
     fun getPagingResult(): LiveData<PagingData<Photos>>
     fun getFavouriteMars(): LiveData<List<Photos>>
-   /* suspend fun getImageandVideoLibrary(title:String)*/
+    fun getFavouriteApod(): LiveData<List<ImageOfTheDayModel>>
+
 
 
 }
@@ -38,6 +39,7 @@ class NasaRepositoryImpl(private val network : NasaService, private val db : App
 
     override fun getImageOfTheDayDb() = db.getContentDao().getContent()
     override fun getFavouriteMars(): LiveData<List<Photos>> =  db.getContentDao().getFavorite()
+    override fun getFavouriteApod(): LiveData<List<ImageOfTheDayModel>>  = db.getContentDao().getFavouriteApod()
 
     @ExperimentalPagingApi
     override fun getPagingResult(): LiveData<PagingData<Photos>> {
@@ -48,13 +50,6 @@ class NasaRepositoryImpl(private val network : NasaService, private val db : App
             pagingSourceFactory = pagingSourceFactory
         ).liveData
     }
-
-
-
-   /* override suspend fun getImageandVideoLibrary(title: String) {
-        val resultt = network.getImagesandVideo()
-    }*/
-
 
     companion object{
         const val  PAGE_SIZE = 20
