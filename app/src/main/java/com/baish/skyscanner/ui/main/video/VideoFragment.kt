@@ -46,6 +46,13 @@ class VideoFragment : Fragment() {
             intent.putExtra("video3", getString(R.string.state))
             startActivity(intent)
         }
+
+        binding?.constrRobert?.setOnClickListener {
+            val intent  = Intent(activity, VideoActivity::class.java)
+            intent.putExtra("video4", getString(R.string.robert))
+            startActivity(intent)
+        }
+
     }
 
     private fun cutImages() {

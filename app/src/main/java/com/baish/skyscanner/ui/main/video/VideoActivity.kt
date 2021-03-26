@@ -48,10 +48,15 @@ class VideoActivity : AppCompatActivity() {
     private fun getVideos() {
         val url = intent.getStringExtra("video1")
         url?.let { play(it) }
+
         val urlTwo = intent.getStringExtra("video2")
         urlTwo?.let { play(it) }
+
         val urlThree = intent.getStringExtra("video3")
         urlThree?.let { play(it) }
+
+        val urlFour = intent.getStringExtra("video4")
+        urlFour?.let { play(it) }
     }
 
     private fun initExoPlayer() {
