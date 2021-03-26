@@ -5,14 +5,12 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.SnapHelper
 import com.baish.skyscanner.R
 import com.baish.skyscanner.databinding.FragmentMainBinding
-import com.baish.skyscanner.ui.main.MainRecycler
 import com.baish.skyscanner.ui.main.video.VideoActivity
 import com.baish.skyscanner.utils.ItemOffsetDecoration
 import com.baish.skyscanner.utils.setCornerRadius
@@ -64,8 +62,7 @@ class MainFragment : Fragment() {
 
     private fun setupListeners() {
         binding?.constrTransfer?.setOnClickListener {
-            val intent = Intent(activity, VideoActivity::class.java)
-            startActivity(intent)
+            findNavController().navigate(R.id.action_mainFragment_to_videoFragment)
         }
         binding?.techport?.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_techProjectFragment)

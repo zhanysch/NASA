@@ -1,4 +1,4 @@
-package com.baish.skyscanner.ui.main
+package com.baish.skyscanner.ui.main.mainside
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -11,10 +11,11 @@ import com.baish.skyscanner.databinding.MainRecycleritemBinding
 import com.baish.skyscanner.utils.setCornerRadius
 import com.squareup.picasso.Picasso
 
-class MainRecycler(private val listener: ()-> Unit) : ListAdapter<ImageOfTheDayModel, MainViewHolder>(diffUtil) {
+class MainRecycler(private val listener: ()-> Unit) : ListAdapter<ImageOfTheDayModel, MainViewHolder>(
+    diffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
-        return MainViewHolder.create(parent,listener)
+        return MainViewHolder.create(parent, listener)
     }
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {

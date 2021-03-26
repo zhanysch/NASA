@@ -46,12 +46,12 @@ class ImageViewHolder(
     private val listener: (item: Items, image: ShapeableImageView) -> Unit,
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(item: Items, position: Int) {
+    fun bind(item: Items?, position: Int) {
 
         binding.imageShow.transitionName =
             itemView.context.resources.getString(R.string.image_transition, position)
 
-        item.id = position
+        item?.id = position
 
         val radius = itemView.context.resources.getDimension(R.dimen.imageCutted)
         binding.imageShow.setCornerRadius(
@@ -61,16 +61,26 @@ class ImageViewHolder(
             bottomRight = radius
         )
         itemView.setOnClickListener {
-            item.let { it1 -> listener.invoke(it1, binding.imageShow) }
+            item.let { it1 -> it1?.let { it2 -> listener.invoke(it2, binding.imageShow) } }
         }
-        val image = item.links.first().href
-        Picasso.get().load(image).placeholder(R.drawable.nasa_place).into(binding.imageShow)
+        val image = item?.links?.first()?.href
 
-        val itemTwo = item.data.first().title
-        binding.titlefMovie.text = itemTwo
+        if (item != null){
+            Picasso.get().load(image).placeholder(R.drawable.nasa_place).into(binding.imageShow)
+        }
 
-        val itemThree = item.data.first().location
-        binding.location.text = itemThree
+
+        val itemTwo = item?.data?.first()?.title
+        if (itemTwo !=null){
+            binding.titlefMovie.text = itemTwo
+        }
+
+
+        val itemThree = item?.data?.first()?.location
+        if (itemThree !=null){
+            binding.location.text = itemThree
+        }
+
 
     }
 

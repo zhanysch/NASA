@@ -35,7 +35,6 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/titlefMovie"
         app:layout_constraintStart_toEndOf="@id/imageShow"
-        android:hint="2002"
         android:textSize="14sp"
         android:textColor="@android:color/white"
         android:textStyle="italic"

@@ -44,6 +44,7 @@ class ApodViewHolder(private val binding : ApodItemBinding,private val vm : Apod
         binding.apodExplanation.text = item.explanation
         Picasso.get().load(item.url).placeholder(R.drawable.nasa_place).into(binding.apoditemImage)
 
+
         binding.checkApod.setOnCheckedChangeListener { buttonView, isChecked ->
            item.isChecked = isChecked
             vm.updateApod(item)

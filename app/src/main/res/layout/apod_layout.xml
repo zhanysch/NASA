@@ -17,6 +17,8 @@
         app:layout_constraintEnd_toEndOf="@id/recyclerApod"/>
 
 
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerApod"
         android:layout_width="match_parent"

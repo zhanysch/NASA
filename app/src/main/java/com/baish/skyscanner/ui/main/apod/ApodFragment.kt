@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.SnapHelper
 import com.baish.skyscanner.databinding.ApodLayoutBinding
@@ -34,6 +35,7 @@ class ApodFragment : Fragment() {
         setupApod()
         vm.loadImage()
         binding?.recyclerApod?.adapter = adapterAPOD
+
 
     }
 

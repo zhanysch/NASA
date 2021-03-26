@@ -40,42 +40,65 @@
             app:destination="@id/apodFragment"
             app:enterAnim="@anim/from_right"
             app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
             app:popUpTo="@id/mainFragment" />
         <action
             android:id="@+id/action_mainFragment_to_faqFragment"
             app:destination="@id/faqFragment"
             app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left" />
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_mainFragment_to_termsConditionsFragment"
             app:destination="@id/termsConditionsFragment"
             app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left" />
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_mainFragment_to_privacyFragment"
             app:destination="@id/privacyFragment"
             app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left" />
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/from_right" />
         <action
             android:id="@+id/action_mainFragment_to_techProjectFragment"
             app:destination="@id/techProjectFragment"
             app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left" />
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_mainFragment_to_marsFragment"
             app:destination="@id/marsFragment"
             app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left" />
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_mainFragment_to_featuresFragment"
             app:destination="@id/featuresFragment"
             app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left" />
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_mainFragment_to_imageandVideoFragment"
             app:destination="@id/imageandVideoFragment"
             app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left" />
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_videoFragment"
+            app:destination="@id/videoFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/apodFragment"
@@ -131,5 +154,10 @@
             app:nullable="true"
             android:defaultValue="@null"/>
     </fragment>
+    <fragment
+        android:id="@+id/videoFragment"
+        tools:layout="@layout/video_layout"
+        android:name="com.baish.skyscanner.ui.main.video.VideoFragment"
+        android:label="VideoFragment" />
 
 </navigation>

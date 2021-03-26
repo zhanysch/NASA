@@ -32,8 +32,28 @@ class VideoActivity : AppCompatActivity() {
         binding = ActivityVideoBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initExoPlayer()
-        play("http://images-assets.nasa.gov/video/Laser Geodynamics Satellite (LAGEOS)/Laser Geodynamics Satellite (LAGEOS)~mobile.mp4")
+        getVideos()
+
+
+
+       // play("http://images-assets.nasa.gov/video/Laser Geodynamics Satellite (LAGEOS)/Laser Geodynamics Satellite (LAGEOS)~mobile.mp4")
+
+
+        //http://images-assets.nasa.gov/video/NHQ_2019_0508_We Are NASA/NHQ_2019_0508_We Are NASA~orig.mp4
+        //http://images-assets.nasa.gov/video/NHQ_2017_0523_FY18 State Of NASA Budget/NHQ_2017_0523_FY18 State Of NASA Budget~medium.mp4
+        //http://images-assets.nasa.gov/video/NASA_2020_0327_The Impact of Coronavirus to NASA’s Missions on This Week @NASA – March 27, 2020/NASA_2020_0327_The Impact of Coronavirus to NASA’s Missions on This Week @NASA – March 27, 2020~large.mp4
+        //http://images-assets.nasa.gov/video/NHQ_2017_0523_Acting Administrator Robert Lightfoot Discusses NASAs FY2018 NASA Budget Request/NHQ_2017_0523_Acting Administrator Robert Lightfoot Discusses NASAs FY2018 NASA Budget Request~medium.mp4
     }
+
+    private fun getVideos() {
+        val url = intent.getStringExtra("video1")
+        url?.let { play(it) }
+        val urlTwo = intent.getStringExtra("video2")
+        urlTwo?.let { play(it) }
+        val urlThree = intent.getStringExtra("video3")
+        urlThree?.let { play(it) }
+    }
+
     private fun initExoPlayer() {
         binding.player.player = initialize()
     }

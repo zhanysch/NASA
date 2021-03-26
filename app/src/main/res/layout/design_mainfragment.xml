@@ -98,7 +98,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
-                    android:background="@drawable/corner_profile"/>
+                    />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -130,7 +130,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
-                    android:background="@drawable/corner_profile"/>
+                    />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -163,8 +163,7 @@
                   android:scaleType="centerCrop"
                     app:layout_constraintTop_toTopOf="parent"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:background="@drawable/corner_profile"/>
+                    android:layout_height="150dp" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -195,8 +194,7 @@
                     android:scaleType="centerCrop"
                     app:layout_constraintTop_toTopOf="parent"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:background="@drawable/corner_profile"/>
+                    android:layout_height="150dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
