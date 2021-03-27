@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#67817F"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="#67817F">
 
 
     <com.baish.skyscanner.view.NonSwipeableViewPager
@@ -15,40 +15,41 @@
         android:id="@+id/onBoardTabLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp"
-        app:tabRippleColor="@android:color/transparent"
+        android:layout_marginBottom="10dp"
         android:background="@null"
-    app:layout_constraintBottom_toTopOf="@id/tvNext"
+        app:layout_constraintBottom_toTopOf="@id/tvNext"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:tabBackground="@drawable/bg_tablayout_selector"
-        app:tabIndicatorHeight="0dp" />
+        app:tabIndicatorHeight="0dp"
+        app:tabRippleColor="@android:color/transparent" />
 
     <TextView
         android:id="@+id/tvSkip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="50dp"
         android:fontFamily="@font/gothampro_medium"
         android:gravity="center"
+        android:text="Skip"
         android:textColor="#FFFEFE"
         android:textSize="16sp"
-        android:text="Skip"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
+        app:layout_constraintTop_toTopOf="parent"
         android:fontFamily="@font/gothampro_medium"
         android:gravity="center"
-        android:textColor="#FFFEFE"
-        android:textSize="16sp"
         android:text="Continue"
+        android:textColor="#FFFEFE"
+        app:layout_constraintVertical_bias="0.96"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.baish.skyscanner.R
 import com.baish.skyscanner.databinding.ImagedetailsLayoutBinding
@@ -36,6 +37,9 @@ class ImageDetails: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
+        binding?.btnBack?.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
     private fun setupViews() {

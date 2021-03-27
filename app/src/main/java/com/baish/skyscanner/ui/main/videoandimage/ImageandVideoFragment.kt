@@ -49,6 +49,9 @@ class ImageandVideoFragment : Fragment(){
         super.onViewCreated(view, savedInstanceState)
         updateSeacrhRepository()
         setupRecycler()
+        binding?.btnBack?.setOnClickListener {
+            findNavController().popBackStack()
+        }
 
     }
 

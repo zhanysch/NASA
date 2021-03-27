@@ -1,11 +1,13 @@
 package com.baish.skyscanner.ui.main.video
 
+import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.baish.skyscanner.R
 import com.baish.skyscanner.databinding.FragmentMainBinding
 import com.baish.skyscanner.databinding.VideoLayoutBinding
@@ -33,6 +35,7 @@ class VideoFragment : Fragment() {
         binding?.constrWe?.setOnClickListener {
             val intent = Intent(activity, VideoActivity::class.java)
             intent.putExtra("video1",getString(R.string.we))
+
             startActivity(intent)
         }
         binding?.constrLaser?.setOnClickListener {
@@ -52,7 +55,9 @@ class VideoFragment : Fragment() {
             intent.putExtra("video4", getString(R.string.robert))
             startActivity(intent)
         }
-
+        binding?.btnBack?.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
     private fun cutImages() {
