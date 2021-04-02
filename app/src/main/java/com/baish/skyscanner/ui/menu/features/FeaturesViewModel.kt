@@ -11,10 +11,7 @@ import com.baish.skyscanner.data.repository.NasaRepository
 
 class FeaturesViewModel(private val repository : NasaRepository, private val db : AppDataBase): ViewModel(){
 
-    @ExperimentalPagingApi
-    fun getPagindMarsData(): LiveData<PagingData<Photos>> {
-        return repository.getPagingResult()
-    }
+
 
 
     @ExperimentalPagingApi

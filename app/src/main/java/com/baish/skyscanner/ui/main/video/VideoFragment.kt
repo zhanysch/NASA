@@ -35,8 +35,8 @@ class VideoFragment : Fragment() {
         binding?.constrWe?.setOnClickListener {
             val intent = Intent(activity, VideoActivity::class.java)
             intent.putExtra("video1",getString(R.string.we))
-
-            startActivity(intent)
+            val options = ActivityOptions.makeSceneTransitionAnimation(activity,binding?.constrWe, "robot")
+            startActivity(intent,options.toBundle())
         }
         binding?.constrLaser?.setOnClickListener {
             val intent = Intent(activity, VideoActivity::class.java)

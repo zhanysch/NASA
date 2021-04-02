@@ -50,7 +50,7 @@ class FeaturMarsViewHolder(private val binding : FeaturesMarsitemBinding,private
         binding.landingDateTwo.text = item?.rover?.landing_date
         binding.launchDateTwo.text = item?.rover?.launch_date
         binding.statusTwo.text = item?.rover?.status
-        Picasso.get().load(item?.img_src).placeholder(R.drawable.nasa_place).into(binding.featuresMarsitemImage)
+        Picasso.get().load(item?.img_src).placeholder(R.drawable.nasa_place).into(binding.marsitemImage)
 
         binding.checkMars.setOnCheckedChangeListener { buttonView, isChecked ->
             item?.isChecked = isChecked

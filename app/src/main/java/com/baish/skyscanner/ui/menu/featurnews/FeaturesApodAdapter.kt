@@ -1,4 +1,4 @@
-package com.baish.skyscanner.ui.menu.features
+package com.baish.skyscanner.ui.menu.featurnews
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.baish.skyscanner.R
 import com.baish.skyscanner.data.model.nasa.imageofday.ImageOfTheDayModel
 import com.baish.skyscanner.databinding.FeaturesApoditemBinding
+import com.baish.skyscanner.ui.menu.features.FeaturesViewModel
 import com.squareup.picasso.Picasso
 
 class FeaturesApodAdapter(private val vm: FeaturesViewModel) :

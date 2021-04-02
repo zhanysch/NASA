@@ -31,7 +31,10 @@
 
             <item
                 android:id="@+id/features"
-                android:title="Features" />
+                android:title="FeaturesMars" />
+
+            <item android:id="@+id/featuresNews"
+                android:title="News you liked"/>
 
         </menu>
     </item>

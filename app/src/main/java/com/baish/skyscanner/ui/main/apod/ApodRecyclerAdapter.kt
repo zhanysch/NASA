@@ -7,13 +7,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.baish.skyscanner.R
 import com.baish.skyscanner.data.model.nasa.imageofday.ImageOfTheDayModel
 import com.baish.skyscanner.databinding.ApodItemBinding
-import com.baish.skyscanner.ui.main.mars.MarsViewModel
 import com.squareup.picasso.Picasso
 
-class ApodRecyclerAdapter(private val vm : ApodViewModel) : androidx.recyclerview.widget.ListAdapter<ImageOfTheDayModel, ApodViewHolder>(diffUtil) {
+class ApodRecyclerAdapter(private val vm : ApodViewModel,private val listener: ()-> Unit) : androidx.recyclerview.widget.ListAdapter<ImageOfTheDayModel, ApodViewHolder>(diffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ApodViewHolder {
-       return ApodViewHolder.create(parent,vm)
+       return ApodViewHolder.create(parent,vm,listener)
     }
 
     override fun onBindViewHolder(holder: ApodViewHolder, position: Int) {
@@ -38,11 +37,15 @@ class ApodRecyclerAdapter(private val vm : ApodViewModel) : androidx.recyclervie
 
 }
 
-class ApodViewHolder(private val binding : ApodItemBinding,private val vm : ApodViewModel) : RecyclerView.ViewHolder(binding.root){
+class ApodViewHolder(private val binding : ApodItemBinding,private val vm : ApodViewModel,private val listener: () -> Unit) : RecyclerView.ViewHolder(binding.root){
     fun bind(item: ImageOfTheDayModel) {
        binding.apodTitle.text = item.title
         binding.apodExplanation.text = item.explanation
         Picasso.get().load(item.url).placeholder(R.drawable.nasa_place).into(binding.apoditemImage)
+
+        binding.btnBack.setOnClickListener {
+           listener.invoke()
+        }
 
 
         binding.checkApod.setOnCheckedChangeListener { buttonView, isChecked ->
@@ -52,10 +55,10 @@ class ApodViewHolder(private val binding : ApodItemBinding,private val vm : Apod
     }
 
     companion object {
-        fun create(parent: ViewGroup, vm: ApodViewModel) : ApodViewHolder{
+        fun create(parent: ViewGroup, vm: ApodViewModel, listener: () -> Unit) : ApodViewHolder{
             val view = LayoutInflater.from(parent.context).inflate(R.layout.apod_item,parent,false)
             val binding = ApodItemBinding.bind(view)
-            return ApodViewHolder(binding,vm)
+            return ApodViewHolder(binding,vm,listener)
         }
     }
 }

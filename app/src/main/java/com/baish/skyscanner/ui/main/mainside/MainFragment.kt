@@ -109,6 +109,10 @@ class MainFragment : Fragment() {
                     findNavController().navigate(R.id.action_mainFragment_to_featuresFragment)
                     return@setOnMenuItemClickListener true
                 }
+                R.id.featuresNews ->{
+                    findNavController().navigate(R.id.action_mainFragment_to_featurNewsFragment)
+                    return@setOnMenuItemClickListener  true
+                }
                 else -> super.onOptionsItemSelected(it)
             }
         }

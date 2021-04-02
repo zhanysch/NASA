@@ -31,21 +31,16 @@ class PagingMediator(
 
             LoadType.PREPEND -> {
                 val remoteKeys = getRemoteKeyforFirstItem(state)
-                    ?: throw InvalidObjectException("prepend error")
-                remoteKeys.prevKey ?: return MediatorResult.Success(
+                remoteKeys?.prevKey ?: return MediatorResult.Success(
                     endOfPaginationReached = true
                 )
                 remoteKeys.prevKey
             }
 
             LoadType.APPEND -> {
-                val remoteKeys =
-                    getRemoteKeysForLastItem(state) ?: throw InvalidObjectException("append error")
-                if (remoteKeys.nextKey == null) throw InvalidObjectException("append error")
-
-                remoteKeys.nextKey
+                val remoteKeys = getRemoteKeysForLastItem(state)
+                remoteKeys?.nextKey ?: 2
             }
-
         }
 
         try {

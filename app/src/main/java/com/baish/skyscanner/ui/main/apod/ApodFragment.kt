@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.SnapHelper
+import com.baish.skyscanner.R
 import com.baish.skyscanner.databinding.ApodLayoutBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -17,7 +18,9 @@ class ApodFragment : Fragment() {
     var binding: ApodLayoutBinding? = null
 
     private val vm by viewModel<ApodViewModel>()
-    private val adapterAPOD by lazy { ApodRecyclerAdapter(vm) }
+    private val adapterAPOD by lazy { ApodRecyclerAdapter(vm){
+        findNavController().navigate(R.id.action_apodFragment_to_mainFragment)
+    } } //(findnavController)
 
     override fun onCreateView(
         inflater: LayoutInflater,

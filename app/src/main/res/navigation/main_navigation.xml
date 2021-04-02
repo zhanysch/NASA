@@ -99,12 +99,19 @@
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_featurNewsFragment"
+            app:destination="@id/featurNewsFragment" />
     </fragment>
     <fragment
         android:id="@+id/apodFragment"
         android:name="com.baish.skyscanner.ui.main.apod.ApodFragment"
         android:label="ApodFragment"
-        tools:layout="@layout/apod_layout" />
+        tools:layout="@layout/apod_layout" >
+        <action
+            android:id="@+id/action_apodFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/faqFragment"
         android:name="com.baish.skyscanner.ui.menu.FaqFragment"
@@ -159,5 +166,10 @@
         tools:layout="@layout/video_layout"
         android:name="com.baish.skyscanner.ui.main.video.VideoFragment"
         android:label="VideoFragment" />
+    <fragment
+        android:id="@+id/featurNewsFragment"
+        tools:layout="@layout/featur_news"
+        android:name="com.baish.skyscanner.ui.menu.featurnews.FeaturNewsFragment"
+        android:label="FeaturNewsFragment" />
 
 </navigation>
