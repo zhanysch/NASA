@@ -17,7 +17,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class ApodFragment : Fragment() {
 
     var binding: ApodLayoutBinding? = null
-    private var currentPosition : Int? = null
+
 
     private val vm by viewModel<ApodViewModel>()
     private val adapterAPOD by lazy { ApodRecyclerAdapter(vm)}
@@ -40,10 +40,10 @@ class ApodFragment : Fragment() {
         binding?.recyclerApod?.adapter = adapterAPOD
 
 
-        /*binding?.recyclerApod?.addOnScrollListener(object: RecyclerView.OnScrollListener() {
+      /*  binding?.recyclerApod?.addOnScrollListener(object: RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx:Int, dy:Int) {
                 super.onScrolled(recyclerView, dx, dy)
-                currentPosition = llm.findFirstVisibleItemPosition()
+               val  currentPosition = llm.findFirstVisibleItemPosition()
                 downloadFab.setOnClickListener(object:View.OnClickListener() {
                     fun onClick(view:View) {}
                 })

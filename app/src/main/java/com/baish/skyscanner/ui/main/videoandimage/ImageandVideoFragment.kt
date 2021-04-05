@@ -52,7 +52,6 @@ class ImageandVideoFragment : Fragment(){
         binding?.btnBack?.setOnClickListener {
             findNavController().popBackStack()
         }
-
     }
 
     private fun setupRecycler() {

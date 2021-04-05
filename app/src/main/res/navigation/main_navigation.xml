@@ -111,6 +111,10 @@
         <action
             android:id="@+id/action_apodFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+        <argument
+            android:name="position"
+            app:argType="integer"
+            />
     </fragment>
     <fragment
         android:id="@+id/faqFragment"

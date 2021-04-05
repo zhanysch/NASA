@@ -11,10 +11,9 @@ import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.SnapHelper
 import com.baish.skyscanner.R
 import com.baish.skyscanner.databinding.FragmentMainBinding
-import com.baish.skyscanner.ui.main.video.VideoActivity
+import com.baish.skyscanner.ui.main.apod.ApodFragmentDirections
 import com.baish.skyscanner.utils.ItemOffsetDecoration
 import com.baish.skyscanner.utils.setCornerRadius
-
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainFragment : Fragment() {
@@ -22,6 +21,9 @@ class MainFragment : Fragment() {
     var binding: FragmentMainBinding? = null
     private val vm by viewModel<MainViewModel>()
     private val adapterMain by lazy { MainRecycler(){
+     /* val direction = ApodFragmentDirections.actionApodFragmentToMainFragment()
+        direction.position*/
+
         findNavController().navigate(R.id.action_mainFragment_to_apodFragment)
     } }
 
