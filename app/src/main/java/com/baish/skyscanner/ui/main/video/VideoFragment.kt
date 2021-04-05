@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.baish.skyscanner.R
-import com.baish.skyscanner.databinding.FragmentMainBinding
 import com.baish.skyscanner.databinding.VideoLayoutBinding
 import com.baish.skyscanner.utils.setCornerRadius
 
@@ -19,7 +18,7 @@ class VideoFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         binding = VideoLayoutBinding.inflate(layoutInflater)
         return binding?.root
@@ -34,14 +33,15 @@ class VideoFragment : Fragment() {
     private fun setupClicks() {
         binding?.constrWe?.setOnClickListener {
             val intent = Intent(activity, VideoActivity::class.java)
-            intent.putExtra("video1",getString(R.string.we))
-            val options = ActivityOptions.makeSceneTransitionAnimation(activity,binding?.constrWe, "robot")
-            startActivity(intent,options.toBundle())
+            intent.putExtra("video1", getString(R.string.we))
+            startActivity(intent)
+            requireActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
         binding?.constrLaser?.setOnClickListener {
             val intent = Intent(activity, VideoActivity::class.java)
-            intent.putExtra("video2",getString(R.string.laser))
+            intent.putExtra("video2", getString(R.string.laser))
             startActivity(intent)
+            requireActivity().overridePendingTransition(R.anim.rotate_in, R.anim.rotate_out)
         }
 
         binding?.constrState?.setOnClickListener {
@@ -54,7 +54,15 @@ class VideoFragment : Fragment() {
             val intent  = Intent(activity, VideoActivity::class.java)
             intent.putExtra("video4", getString(R.string.robert))
             startActivity(intent)
+            requireActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
+
+        binding?.constrCorona?.setOnClickListener {
+            val intent = Intent(activity, VideoActivity::class.java)
+            intent.putExtra("video5", getString(R.string.corona_nasa))
+            startActivity(intent)
+        }
+
         binding?.btnBack?.setOnClickListener {
             findNavController().popBackStack()
         }
@@ -80,7 +88,7 @@ class VideoFragment : Fragment() {
             bottomRight = radius,
             bottomLeft = radius
         )
-        binding?.imageCorona?.setCornerRadius(
+        binding?.imagecorona?.setCornerRadius(
             topRight = radius,
             topLeft = radius,
             bottomRight = radius,

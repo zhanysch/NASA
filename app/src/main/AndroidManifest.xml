@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SkyScanner">
-        <activity android:name=".ui.main.video.VideoActivity"></activity>
+        <activity android:name=".ui.main.video.VideoActivity"
+            android:configChanges="orientation|screenSize|layoutDirection"></activity>
         <activity android:name=".ui.onboard.NavigationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -19,6 +19,7 @@
 
 
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerApod"
         android:layout_width="match_parent"
@@ -26,5 +27,18 @@
         android:orientation="horizontal"
         tools:listitem="@layout/apod_item"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_arrow_back_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

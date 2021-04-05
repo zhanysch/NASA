@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.baish.skyscanner.databinding.FeaturNewsBinding
 import com.baish.skyscanner.databinding.FeaturesLayoutBinding
 import com.baish.skyscanner.ui.menu.features.FeaturMarsAdapter
@@ -33,6 +34,9 @@ class FeaturNewsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding?.recyclerFeatures?.adapter = adapterFeaturApod
         setup()
+        binding?.btnBack?.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
     private fun setup() {

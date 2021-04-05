@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.paging.ExperimentalPagingApi
 import com.baish.skyscanner.databinding.FeaturesLayoutBinding
 import com.baish.skyscanner.databinding.FragmentMainBinding
@@ -33,6 +34,9 @@ class FeaturesFragment : Fragment(){
         super.onViewCreated(view, savedInstanceState)
        binding?.recyclerFeatures?.adapter = adapterFeaturMars
         setupVm()
+        binding?.btnBack?.setOnClickListener {
+            findNavController().popBackStack()
+        }
 
     }
 

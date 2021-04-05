@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearSnapHelper
+import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
 import com.baish.skyscanner.R
 import com.baish.skyscanner.databinding.ApodLayoutBinding
@@ -16,11 +17,10 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class ApodFragment : Fragment() {
 
     var binding: ApodLayoutBinding? = null
+    private var currentPosition : Int? = null
 
     private val vm by viewModel<ApodViewModel>()
-    private val adapterAPOD by lazy { ApodRecyclerAdapter(vm){
-        findNavController().navigate(R.id.action_apodFragment_to_mainFragment)
-    } } //(findnavController)
+    private val adapterAPOD by lazy { ApodRecyclerAdapter(vm)}
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,6 +40,16 @@ class ApodFragment : Fragment() {
         binding?.recyclerApod?.adapter = adapterAPOD
 
 
+        /*binding?.recyclerApod?.addOnScrollListener(object: RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx:Int, dy:Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                currentPosition = llm.findFirstVisibleItemPosition()
+                downloadFab.setOnClickListener(object:View.OnClickListener() {
+                    fun onClick(view:View) {}
+                })
+            }
+        })*/
+
     }
 
     private fun setupApod() {
@@ -49,7 +59,9 @@ class ApodFragment : Fragment() {
             binding?.progresBar?.visibility = View.VISIBLE
             adapterAPOD.submitList(it)
         })
-
+        binding?.btnBack?.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
     override fun onDestroyView() {

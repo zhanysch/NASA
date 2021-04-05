@@ -154,44 +154,6 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constrCorona"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/constr_clik"
-                android:clickable="true"
-                android:focusable="true"
-                app:layout_constraintTop_toBottomOf="@id/constrState">
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/imageCorona"
-                    android:layout_width="120dp"
-                    android:layout_height="80dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginBottom="12dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/nasa_corona"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_marginHorizontal="8dp"
-                    android:ellipsize="end"
-                    android:fontFamily="@font/gothampro_medium"
-                    android:maxLines="2"
-                    android:text="Impact of    Coronavirus"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="@id/imageCorona"
-                    app:layout_constraintStart_toEndOf="@id/imageCorona"
-                    app:layout_constraintTop_toTopOf="@id/imageCorona" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constrRobert"
@@ -229,6 +191,45 @@
                     app:layout_constraintBottom_toBottomOf="@id/imageRobert"
                     app:layout_constraintStart_toEndOf="@id/imageRobert"
                     app:layout_constraintTop_toTopOf="@id/imageRobert" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constrCorona"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/constr_clik"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintTop_toBottomOf="@id/constrRobert">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imagecorona"
+                    android:layout_width="120dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/corona_na"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/gothampro_medium"
+                    android:maxLines="2"
+                    android:text="The Impact of \n Coronavirus to NASA"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="@id/imagecorona"
+                    app:layout_constraintStart_toEndOf="@id/imagecorona"
+                    app:layout_constraintTop_toTopOf="@id/imagecorona" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
