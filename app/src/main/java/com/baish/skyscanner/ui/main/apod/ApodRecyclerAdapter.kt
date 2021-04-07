@@ -35,10 +35,8 @@ class ApodRecyclerAdapter(private val vm: ApodViewModel) : androidx.recyclerview
             ): Boolean {
                 return oldItem == newItem
             }
-
         }
     }
-
 }
 
 class ApodViewHolder(private val binding: ApodItemBinding, private val vm: ApodViewModel) : RecyclerView.ViewHolder(
@@ -56,8 +54,6 @@ class ApodViewHolder(private val binding: ApodItemBinding, private val vm: ApodV
             vm.updateApod(item)
         }
     }
-
-
 
     companion object {
         fun create(parent: ViewGroup, vm: ApodViewModel) : ApodViewHolder{
