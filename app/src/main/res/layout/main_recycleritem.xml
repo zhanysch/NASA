@@ -13,7 +13,6 @@
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/recyclermainimage"
         android:layout_width="280dp"
-        android:background="@drawable/recycler_corn"
         android:layout_height="213dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,15 +21,16 @@
 
     <TextView
         android:id="@+id/recyclermaintext"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:fontFamily="@font/gilroy_bold"
         android:hint="blablabla"
+        android:maxLines="2"
         android:textColor="@color/colorWhite"
         android:textSize="16sp"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recyclermainimage" />
+        app:layout_constraintStart_toStartOf="@id/recyclermainimage"
+        app:layout_constraintTop_toBottomOf="@id/recyclermainimage"
+        app:layout_constraintEnd_toEndOf="@id/recyclermainimage"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

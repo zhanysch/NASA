@@ -121,7 +121,7 @@ class MainFragment : Fragment() {
     }
 
     private fun cutImages() {
-        val radius = resources.getDimension(R.dimen.mtrl_btn_corner_radius)
+        val radius = resources.getDimension(R.dimen.image_Cutted)
         binding?.imageTechport?.setCornerRadius(
             topRight = radius,
             topLeft = radius,

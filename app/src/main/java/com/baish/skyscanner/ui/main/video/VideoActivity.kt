@@ -192,4 +192,9 @@ class VideoActivity : AppCompatActivity() {
         exoMediaPlayer.addListener(listener)
 
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        exoMediaPlayer.release()
+    }
 }
