@@ -11,8 +11,6 @@ import androidx.paging.ExperimentalPagingApi
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.SnapHelper
 import com.baish.skyscanner.databinding.MarsLayoutBinding
-import com.baish.skyscanner.databinding.TechprojecktLayoutBinding
-import com.baish.skyscanner.ui.main.techproject.TechProjectViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MarsFragment : Fragment() {
