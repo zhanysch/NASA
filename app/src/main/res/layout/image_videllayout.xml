@@ -11,7 +11,7 @@
         android:id="@+id/imagemain"
        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:src="@drawable/nothingfound"
+        android:src="@drawable/space_man"
         android:scaleType="centerCrop"
         android:layout_width="match_parent"
         android:visibility="gone"
@@ -39,8 +39,8 @@
         android:hint="Here we go">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etSearch"
-            android:background="@color/colorWhite"
             android:imeOptions="actionSearch"
+            android:background="@color/white"
             android:inputType="textNoSuggestions"
             android:lines="1"
             android:layout_width="match_parent"
@@ -52,12 +52,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="190dp"
+        android:layout_marginStart="20dp"
         android:textColor="@color/white"
         android:textSize="24sp"
         android:visibility="gone"
         android:text="@string/oops_something_went_wrong"
         android:fontFamily="@font/gilroy_regular"
         app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/bydefault"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="textMain,imagemain"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:alpha="0.4"
+        android:background="@drawable/bg_title_onboard"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.90" />
 
     <TextView
         android:id="@+id/textMain"
@@ -71,12 +91,6 @@
         android:textSize="24sp"
         android:fontFamily="@font/gilroy_medium"
         android:text="@string/here_collected_all_information_and_articles_about_nasa_and_our_mission"/>
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/bydefault"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:constraint_referenced_ids="textMain,imagemain"/>
 
 
     <androidx.recyclerview.widget.RecyclerView

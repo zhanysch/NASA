@@ -28,8 +28,4 @@ class NasaInteractorImpl(private val service : NasaService) : NasaInteractor {
         return  service.getImagesandVideo("https://images-api.nasa.gov/search",title)
     }
 
-
-    /* override suspend fun getImageandVideoLibrary(): Response<???> {
-         return service.getImagesandVideo("https://images-api.nasa.gov/search?q=satellite")
-     }*/
 }
