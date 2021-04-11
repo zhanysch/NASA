@@ -55,7 +55,14 @@ class ImageandVideoFragment : Fragment(){
     }
 
     private fun setupRecycler() {
-        binding?.recycler?.adapter = adapterSearch
+        binding?.recycler?.apply {
+            adapter = adapterSearch
+            postponeEnterTransition()
+            viewTreeObserver.addOnPreDrawListener {
+                startPostponedEnterTransition()
+                true}
+        }
+
         vm.search.observe(viewLifecycleOwner, Observer {
             adapterSearch.submitList(it.items)
             if(it.items.isNullOrEmpty() && !binding?.etSearch?.text.isNullOrEmpty()){
