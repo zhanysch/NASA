@@ -46,19 +46,21 @@ class MarsViewHolder(private val binding: MarsRecycleritemBinding,private val vm
         binding.landingDateTwo.text = item?.rover?.landing_date
         binding.launchDateTwo.text = item?.rover?.launch_date
         binding.statusTwo.text = item?.rover?.status
+
+        binding.checkMars.isChecked = item?.isChecked ?: false
+
         Picasso.get().load(item?.img_src).placeholder(R.drawable.nasa_place).into(binding.marsitemImage)
 
-        binding.checkMars.setOnCheckedChangeListener { buttonView, isChecked ->
-          item?.isChecked = isChecked
-
+        binding.checkMars.setOnClickListener {
+          item?.isChecked = !(item?.isChecked?:true)
             item?.let { vm.update(it) }
         }
+
         if (item != null) {
             binding.checkMars.isChecked = item.isChecked
         }
-
-
     }
+
     companion object {
         fun create(parent: ViewGroup, vm: MarsViewModel) : MarsViewHolder{
             val view = LayoutInflater.from(parent.context).inflate(R.layout.mars_recycleritem,parent,false)

@@ -9,8 +9,6 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.paging.ExperimentalPagingApi
 import com.baish.skyscanner.databinding.FeaturesLayoutBinding
-import com.baish.skyscanner.databinding.FragmentMainBinding
-import com.baish.skyscanner.ui.main.mars.MarsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FeaturesFragment : Fragment(){
@@ -43,8 +41,11 @@ class FeaturesFragment : Fragment(){
     @ExperimentalPagingApi
     private fun setupVm() {
         vm.getPagingMarsLikes().observe(viewLifecycleOwner, Observer {
-            adapterFeaturMars.submitList(it)
+            vm.showFavourite(it)
         })
 
+        vm.data.observe(viewLifecycleOwner, Observer {
+            adapterFeaturMars.submitList(it)
+        })
     }
 }

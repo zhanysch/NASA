@@ -63,6 +63,12 @@ class PagingMediator(
                     PageKeys(id = it.id, prevKey = prevKey,nextKey = nextKey)
                 }
 
+               val fav = db.getContentDao().getFavoriteMars()
+                apiResponse.photos.forEach {item ->
+                    if (fav.find { it.id == item.id } != null)
+                        item.isChecked = true
+                }
+
                 db.getPagigngKeysDao().insertAll(keys)
                 db.getContentDao().insert(apiResponse.photos)
 
