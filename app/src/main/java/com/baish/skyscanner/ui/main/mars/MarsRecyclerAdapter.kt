@@ -33,10 +33,8 @@ class MarsRecyclerAdapter(private val vm : MarsViewModel) : PagingDataAdapter<Ph
             override fun areContentsTheSame(oldItem: Photos, newItem: Photos): Boolean {
                 return oldItem == newItem
             }
-
         }
     }
-
 }
 
 class MarsViewHolder(private val binding: MarsRecycleritemBinding,private val vm : MarsViewModel) : RecyclerView.ViewHolder(binding.root){

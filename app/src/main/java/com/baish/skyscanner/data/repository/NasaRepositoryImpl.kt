@@ -8,6 +8,7 @@ import com.baish.skyscanner.data.db.AppDataBase
 import com.baish.skyscanner.data.db.NasaDao
 import com.baish.skyscanner.data.model.nasa.imageofday.ImageOfTheDayModel
 import com.baish.skyscanner.data.model.nasa.mars.Photos
+import com.baish.skyscanner.data.model.nasa.mars.PhotosFavourite
 import com.baish.skyscanner.data.remote.NasaService
 import retrofit2.Response
 import java.lang.Exception
@@ -18,7 +19,7 @@ interface NasaRepository{
     fun getImageOfTheDayDb(): LiveData<List<ImageOfTheDayModel>>
     @ExperimentalPagingApi
     fun getPagingResult(): LiveData<PagingData<Photos>>
-    fun getFavouriteMars(): LiveData<List<Photos>>
+    fun getFavouriteMars(): LiveData<List<PhotosFavourite>>
     fun getFavouriteApod(): LiveData<List<ImageOfTheDayModel>>
 
 
@@ -38,7 +39,7 @@ class NasaRepositoryImpl(private val network : NasaService, private val db : App
     }
 
     override fun getImageOfTheDayDb() = db.getContentDao().getContent()
-    override fun getFavouriteMars(): LiveData<List<Photos>> =  db.getContentDao().getFavorite()
+    override fun getFavouriteMars(): LiveData<List<PhotosFavourite>> =  db.getContentDao().getFavorite()
     override fun getFavouriteApod(): LiveData<List<ImageOfTheDayModel>>  = db.getContentDao().getFavouriteApod()
 
     @ExperimentalPagingApi

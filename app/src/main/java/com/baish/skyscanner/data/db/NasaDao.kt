@@ -1,8 +1,6 @@
 package com.baish.skyscanner.data.db
 
-import android.media.Image
 import androidx.lifecycle.LiveData
-import androidx.paging.PagingData
 import androidx.paging.PagingSource
 import androidx.room.*
 import com.baish.skyscanner.data.model.nasa.imageofday.ImageOfTheDayModel
@@ -34,11 +32,14 @@ interface NasaDao {
     @Update
     fun updateApod(item: ImageOfTheDayModel )
 
+    @Delete
+    fun deleteFavouriteMars(item: PhotosFavourite)
 
 
 
-    @Query("SELECT ALL * FROM  Photos WHERE isChecked")
-    fun getFavorite(): LiveData<List<Photos>>
+
+    @Query("SELECT ALL * FROM  PhotosFavourite")
+    fun getFavorite(): LiveData<List<PhotosFavourite>>
 
     @Query("SELECT ALL * FROM  PhotosFavourite")
     fun getFavoriteMars(): List<PhotosFavourite>
@@ -53,6 +54,4 @@ interface NasaDao {
 
     @Query("DELETE FROM PhotosFavourite")
      fun deleteALLFavourite()
-
-
 }
