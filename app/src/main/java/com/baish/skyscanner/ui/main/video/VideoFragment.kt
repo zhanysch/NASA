@@ -35,7 +35,7 @@ class VideoFragment : Fragment() {
             val intent = Intent(activity, VideoActivity::class.java)
             intent.putExtra("video1", getString(R.string.we))
             startActivity(intent)
-           /* requireActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)*/
+
         }
         binding?.constrLaser?.setOnClickListener {
             val intent = Intent(activity, VideoActivity::class.java)

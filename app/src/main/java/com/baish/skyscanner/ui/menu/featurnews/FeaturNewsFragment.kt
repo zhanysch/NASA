@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearSnapHelper
+import androidx.recyclerview.widget.SnapHelper
 import com.baish.skyscanner.databinding.FeaturNewsBinding
 import com.baish.skyscanner.databinding.FeaturesLayoutBinding
 import com.baish.skyscanner.ui.menu.features.FeaturMarsAdapter
@@ -32,6 +34,8 @@ class FeaturNewsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val snapHelper : SnapHelper = LinearSnapHelper()
+        snapHelper.attachToRecyclerView(binding?.recyclerFeatures)
         binding?.recyclerFeatures?.adapter = adapterFeaturApod
         setup()
         binding?.btnBack?.setOnClickListener {

@@ -33,9 +33,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
+                android:layout_marginHorizontal="8dp"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/colorWhite"
                 android:fontFamily="@font/gilroy_medium"
+                android:paddingBottom="14dp"
                 android:text="@string/faq" />
 
 
