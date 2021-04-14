@@ -42,13 +42,11 @@ class TechProjectFragment : Fragment() {
             binding?.techProTitle?.text = it.title
             binding?.techProExplanation?.text = it.description
             binding?.techProBenefits?.text = it.benefits
-            binding?.techName?.text = it.leadOrganization.name
+            binding?.techName?.text = it.leadOrganization.acronym
             binding?.techCity?.text = it.leadOrganization.city
-            binding?.techCoutnry?.text = it.leadOrganization.country
+            binding?.techCoutnry?.text = it.leadOrganization.country.name
         })
-
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()

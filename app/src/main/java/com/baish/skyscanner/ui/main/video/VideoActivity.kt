@@ -21,7 +21,7 @@ import com.google.android.exoplayer2.util.Util
 
 class VideoActivity : AppCompatActivity() {
 
-    private lateinit var  binding: ActivityVideoBinding
+    private lateinit var binding: ActivityVideoBinding
     private lateinit var exoMediaPlayer: ExoPlayer
     private lateinit var mediaSession: MediaSessionCompat
     private lateinit var stateBuilder: PlaybackStateCompat.Builder
@@ -33,16 +33,9 @@ class VideoActivity : AppCompatActivity() {
         setContentView(binding.root)
         initExoPlayer()
         getVideos()
-
-
-
-       // play("http://images-assets.nasa.gov/video/Laser Geodynamics Satellite (LAGEOS)/Laser Geodynamics Satellite (LAGEOS)~mobile.mp4")
-
-
-        //http://images-assets.nasa.gov/video/NHQ_2019_0508_We Are NASA/NHQ_2019_0508_We Are NASA~orig.mp4
-        //http://images-assets.nasa.gov/video/NHQ_2017_0523_FY18 State Of NASA Budget/NHQ_2017_0523_FY18 State Of NASA Budget~medium.mp4
-        //http://images-assets.nasa.gov/video/NASA_2020_0327_The Impact of Coronavirus to NASA’s Missions on This Week @NASA – March 27, 2020/NASA_2020_0327_The Impact of Coronavirus to NASA’s Missions on This Week @NASA – March 27, 2020~large.mp4
-        //http://images-assets.nasa.gov/video/NHQ_2017_0523_Acting Administrator Robert Lightfoot Discusses NASAs FY2018 NASA Budget Request/NHQ_2017_0523_Acting Administrator Robert Lightfoot Discusses NASAs FY2018 NASA Budget Request~medium.mp4
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun getVideos() {
@@ -57,6 +50,9 @@ class VideoActivity : AppCompatActivity() {
 
         val urlFour = intent.getStringExtra("video4")
         urlFour?.let { play(it) }
+
+        val urlFive = intent.getStringExtra("video5")
+        urlFive?.let { play(it) }
     }
 
     private fun initExoPlayer() {
@@ -122,19 +118,19 @@ class VideoActivity : AppCompatActivity() {
         }
     }
 
-    val listener = object: Player.EventListener{
+    val listener = object : Player.EventListener {
         override fun onTimelineChanged(timeline: Timeline?, manifest: Any?, reason: Int) {
 
         }
 
         override fun onTracksChanged(
             trackGroups: TrackGroupArray?,
-            trackSelections: TrackSelectionArray?
+            trackSelections: TrackSelectionArray?,
         ) {
         }
 
         override fun onLoadingChanged(isLoading: Boolean) {
-            if (isLoading){
+            if (isLoading) {
                 binding.progressBar.visibility = View.GONE
             } else {
                 binding.progressBar.visibility = View.GONE
@@ -195,5 +191,10 @@ class VideoActivity : AppCompatActivity() {
 
         exoMediaPlayer.addListener(listener)
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        exoMediaPlayer.release()
     }
 }

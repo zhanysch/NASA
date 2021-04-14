@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.PagingData
 import com.baish.skyscanner.data.db.AppDataBase
+import com.baish.skyscanner.data.db.ObjectWraper
 import com.baish.skyscanner.data.di.dbModule
 import com.baish.skyscanner.data.model.nasa.mars.Photos
 import com.baish.skyscanner.data.repository.NasaRepository
@@ -17,7 +18,14 @@ class MarsViewModel(private val repository : NasaRepository, private val db : Ap
         return repository.getPagingResult()
     }
 
+
+
     fun update(item : Photos){
-        db.getContentDao().update(item)
+        if (item.isChecked){
+            db.getContentDao().insertFavourite(ObjectWraper.photosToFavouritePhotos(item))
+        } else{
+            db.getContentDao().deleteALLFavourite()
+        }
+
     }
 }

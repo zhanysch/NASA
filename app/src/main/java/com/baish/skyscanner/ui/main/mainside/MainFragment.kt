@@ -11,19 +11,21 @@ import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.SnapHelper
 import com.baish.skyscanner.R
 import com.baish.skyscanner.databinding.FragmentMainBinding
-import com.baish.skyscanner.ui.main.video.VideoActivity
 import com.baish.skyscanner.utils.ItemOffsetDecoration
 import com.baish.skyscanner.utils.setCornerRadius
-
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainFragment : Fragment() {
 
     var binding: FragmentMainBinding? = null
     private val vm by viewModel<MainViewModel>()
-    private val adapterMain by lazy { MainRecycler(){
-        findNavController().navigate(R.id.action_mainFragment_to_apodFragment)
-    } }
+
+    private val adapterMain by lazy {
+        MainRecycler() {
+            val direction = MainFragmentDirections.actionMainFragmentToApodFragment(it)
+            findNavController().navigate(direction)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -109,13 +111,17 @@ class MainFragment : Fragment() {
                     findNavController().navigate(R.id.action_mainFragment_to_featuresFragment)
                     return@setOnMenuItemClickListener true
                 }
+                R.id.featuresNews ->{
+                    findNavController().navigate(R.id.action_mainFragment_to_featurNewsFragment)
+                    return@setOnMenuItemClickListener  true
+                }
                 else -> super.onOptionsItemSelected(it)
             }
         }
     }
 
     private fun cutImages() {
-        val radius = resources.getDimension(R.dimen.mtrl_btn_corner_radius)
+        val radius = resources.getDimension(R.dimen.image_Cutted)
         binding?.imageTechport?.setCornerRadius(
             topRight = radius,
             topLeft = radius,

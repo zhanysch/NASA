@@ -1,10 +1,10 @@
-package com.baish.skyscanner.data.model.nasa.techproject
+package com.baish.skyscanner.data.model.nasa.tech
 
-import com.baish.skyscanner.data.model.nasa.techproject.Files
+import com.baish.skyscanner.data.model.nasa.tech.Country
 import com.google.gson.annotations.SerializedName
 
 /*
-Copyright (c) 2021 Kotlin com.baish.skyscanner.data.model.nasa.nasaimage.Data Classes Generated from JSON powered by http://www.json2kotlin.com
+Copyright (c) 2021 Kotlin Data Classes Generated from JSON powered by http://www.json2kotlin.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -15,14 +15,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
 
-data class LibraryItems (
+data class StateTerritory (
 
-	@SerializedName("id") val id : Int,
-	@SerializedName("title") val title : String,
-	@SerializedName("type") val type : String,
-	@SerializedName("description") val description : String,
-	@SerializedName("externalUrl") val externalUrl : String,
-	@SerializedName("publishedBy") val publishedBy : String,
-	@SerializedName("publishedDate") val publishedDate : String,
-	@SerializedName("files") val files : List<Files>
+    @SerializedName("abbreviation") val abbreviation : String,
+    @SerializedName("country") val country : Country,
+    @SerializedName("countryId") val countryId : Int,
+    @SerializedName("name") val name : String,
+    @SerializedName("stateTerritoryId") val stateTerritoryId : Int
 )

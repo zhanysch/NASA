@@ -2,4 +2,6 @@
 <resources>
     <dimen name="horizont">8dp</dimen>
     <dimen name="imageCutted">4dp</dimen>
+    <dimen name="text_w">16sp</dimen>
+    <dimen name="image_Cutted">20dp</dimen>
 </resources>

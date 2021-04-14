@@ -2,9 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2A292B"
+    android:background="#121111"
     android:paddingBottom="20dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -16,159 +18,175 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+
             <ImageView
-                android:id="@+id/featuresMarsitemImage"
+                android:id="@+id/marsitemImage"
                 android:layout_width="match_parent"
-                android:layout_height="600dp"
+                android:layout_height="480dp"
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/marsTitle"
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-               android:text="Camera:"
-                app:layout_constraintStart_toStartOf="parent"
-                android:fontFamily="@font/gilroy_bold"
-                android:layout_marginHorizontal="16dp"
-                android:textColor="@color/mapbox_blue"
-                android:textSize="24sp"
-                app:layout_constraintTop_toBottomOf="@id/featuresMarsitemImage" />
-
-            <TextView
-                android:id="@+id/marsTitleTwo"
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="2rfsfdsdf"
-                app:layout_constraintStart_toEndOf="@id/marsTitle"
-                android:layout_marginStart="60dp"
-                android:fontFamily="@font/gilroy_bold"
-                android:layout_marginHorizontal="16dp"
-                android:textColor="@color/mapbox_blue"
-                android:textSize="24sp"
-                app:layout_constraintTop_toBottomOf="@id/featuresMarsitemImage" />
-
             <CheckBox
                 android:id="@+id/checkMars"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/featuresMarsitemImage"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="12dp"
+                android:button="@drawable/bg_btn_favorite"
                 android:focusable="false"
-                android:button="@drawable/bg_btn_favorite"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/marsitemImage"
+                app:useMaterialThemeColors="false" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/checkMars"/>
+
+
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/gilroy_bold"
+                android:text="Status:"
+                android:textColor="#0A8C85"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/checkMars" />
+
+            <TextView
+                android:id="@+id/statusTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/gilroy_bold"
+                android:hint="sgsgsdg"
+                android:textColor="#4DDA19"
+                android:textSize="24sp"
+                android:layout_marginEnd="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/checkMars" />
+
+            <TextView
+                android:id="@+id/marsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/gilroy_bold"
+                android:text="Camera:"
+                android:textColor="#0A8C85"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/status" />
+
+            <TextView
+                android:id="@+id/marsTitleTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:fontFamily="@font/gilroy_bold"
+                android:hint="2rfsfdsdf"
+                android:textColor="#0E195C"
+                android:textSize="24sp"
+                app:layout_constraintTop_toBottomOf="@id/status" />
+
 
             <TextView
                 android:id="@+id/marsDate"
-                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Picture date:"
-                app:layout_constraintStart_toStartOf="parent"
-                android:fontFamily="@font/gilroy_bold"
                 android:layout_marginHorizontal="16dp"
-                android:textColor="@color/mapbox_blue"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/gilroy_bold"
+                android:text="Picture date:"
+                android:textColor="#0A8C85"
                 android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/marsTitle" />
 
             <TextView
                 android:id="@+id/marsDateWord"
-                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="sgsgsdg"
-                app:layout_constraintStart_toEndOf="@id/marsDate"
-                android:fontFamily="@font/gilroy_bold"
                 android:layout_marginHorizontal="16dp"
-                android:textColor="@color/mapbox_blue"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/gilroy_bold"
+                android:hint="sgsgsdg"
+                android:textColor="@color/colorWhite"
                 android:textSize="24sp"
+                android:layout_marginEnd="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/marsTitleTwo" />
 
             <TextView
                 android:id="@+id/landingDate"
-                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Landing Date:"
-                app:layout_constraintStart_toStartOf="parent"
-                android:fontFamily="@font/gilroy_bold"
                 android:layout_marginHorizontal="16dp"
-                android:textColor="@color/mapbox_blue"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/gilroy_bold"
+                android:text="Landing Date:"
+                android:textColor="#0A8C85"
                 android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/marsDate" />
+
             <TextView
                 android:id="@+id/landingDateTwo"
-                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="sgsgsdg"
-                app:layout_constraintStart_toEndOf="@id/landingDate"
-                android:fontFamily="@font/gilroy_bold"
                 android:layout_marginHorizontal="16dp"
-                android:textColor="@color/mapbox_blue"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/gilroy_bold"
+                android:hint="sgsgsdg"
+                android:textColor="@color/colorWhite"
                 android:textSize="24sp"
+                android:layout_marginEnd="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/marsDateWord" />
 
             <TextView
                 android:id="@+id/launchDate"
-                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Launch Date:"
-                app:layout_constraintStart_toStartOf="parent"
-                android:fontFamily="@font/gilroy_bold"
                 android:layout_marginHorizontal="16dp"
-                android:textColor="@color/mapbox_blue"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/gilroy_bold"
+                android:text="Launch Date:"
+                android:textColor="#0A8C85"
                 android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/landingDate" />
 
             <TextView
                 android:id="@+id/launchDateTwo"
-                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="sgsgsdg"
-                app:layout_constraintStart_toEndOf="@id/launchDate"
-                android:fontFamily="@font/gilroy_bold"
                 android:layout_marginHorizontal="16dp"
-                android:textColor="@color/mapbox_blue"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/gilroy_bold"
+                android:hint="sgsgsdg"
+                android:textColor="@color/colorWhite"
                 android:textSize="24sp"
+                android:layout_marginEnd="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/landingDateTwo" />
 
-            <TextView
-                android:id="@+id/status"
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Status:"
-                app:layout_constraintStart_toStartOf="parent"
-                android:fontFamily="@font/gilroy_bold"
-                android:layout_marginHorizontal="16dp"
-                android:textColor="@color/mapbox_blue"
-                android:textSize="24sp"
-                app:layout_constraintTop_toBottomOf="@id/launchDate" />
 
-            <TextView
-                android:id="@+id/statusTwo"
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="sgsgsdg"
-                app:layout_constraintStart_toEndOf="@id/launchDate"
-                android:fontFamily="@font/gilroy_bold"
-                android:layout_marginHorizontal="16dp"
-                android:textColor="@color/mapbox_blue"
-                android:textSize="24sp"
-                app:layout_constraintTop_toBottomOf="@id/launchDateTwo" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

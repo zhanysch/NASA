@@ -5,14 +5,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.baish.skyscanner.data.interactor.NasaInteractor
-import com.baish.skyscanner.data.model.nasa.techproject.Files
-import com.baish.skyscanner.data.model.nasa.techproject.LeadOrganization
-import com.baish.skyscanner.data.model.nasa.techproject.Project
+import com.baish.skyscanner.data.model.nasa.tech.Files
+import com.baish.skyscanner.data.model.nasa.tech.LeadOrganization
 import kotlinx.coroutines.launch
 
 class TechProjectViewModel(private val service: NasaInteractor) : ViewModel() {
 
-    val project = MutableLiveData<Project>()
+    val project = MutableLiveData<com.baish.skyscanner.data.model.nasa.tech.Project>()
     val projectFiles = MutableLiveData<LeadOrganization>()
     val files = MutableLiveData<Files>()
 

@@ -85,10 +85,7 @@ class ImageViewHolder(
     }
 
     companion object {
-        fun create(
-            parent: ViewGroup,
-            listener: (item: Items, image: ShapeableImageView) -> Unit,
-        ): ImageViewHolder {
+        fun create(parent: ViewGroup, listener: (item: Items, image: ShapeableImageView) -> Unit, ): ImageViewHolder {
             val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.imageitem_layout, parent, false)
             val binding = ImageitemLayoutBinding.bind(view)

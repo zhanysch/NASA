@@ -27,7 +27,7 @@ class SplashFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         Handler().postDelayed({
             selectFragment()
-        },7000)
+        },3000)
     }
 
     private fun selectFragment() {

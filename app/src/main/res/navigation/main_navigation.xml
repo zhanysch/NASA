@@ -42,7 +42,11 @@
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right"
-            app:popUpTo="@id/mainFragment" />
+            app:popUpTo="@id/mainFragment" >
+            <argument
+                android:name="position"
+                app:argType="integer"/>
+        </action>
         <action
             android:id="@+id/action_mainFragment_to_faqFragment"
             app:destination="@id/faqFragment"
@@ -63,7 +67,7 @@
             app:enterAnim="@anim/from_right"
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
-            app:popExitAnim="@anim/from_right" />
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_mainFragment_to_techProjectFragment"
             app:destination="@id/techProjectFragment"
@@ -99,6 +103,9 @@
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_featurNewsFragment"
+            app:destination="@id/featurNewsFragment" />
     </fragment>
     <fragment
         android:id="@+id/apodFragment"
@@ -159,5 +166,10 @@
         tools:layout="@layout/video_layout"
         android:name="com.baish.skyscanner.ui.main.video.VideoFragment"
         android:label="VideoFragment" />
+    <fragment
+        android:id="@+id/featurNewsFragment"
+        tools:layout="@layout/featur_news"
+        android:name="com.baish.skyscanner.ui.menu.featurnews.FeaturNewsFragment"
+        android:label="FeaturNewsFragment" />
 
 </navigation>

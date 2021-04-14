@@ -11,7 +11,7 @@ import com.baish.skyscanner.databinding.MainRecycleritemBinding
 import com.baish.skyscanner.utils.setCornerRadius
 import com.squareup.picasso.Picasso
 
-class MainRecycler(private val listener: ()-> Unit) : ListAdapter<ImageOfTheDayModel, MainViewHolder>(
+class MainRecycler(private val listener: (position:Int)-> Unit) : ListAdapter<ImageOfTheDayModel, MainViewHolder>(
     diffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
@@ -19,7 +19,7 @@ class MainRecycler(private val listener: ()-> Unit) : ListAdapter<ImageOfTheDayM
     }
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        holder.bind(getItem(position),position)
     }
 
     companion object {
@@ -41,9 +41,9 @@ class MainRecycler(private val listener: ()-> Unit) : ListAdapter<ImageOfTheDayM
     }
 }
 
-class MainViewHolder(private val binding: MainRecycleritemBinding, private val listener: () -> Unit) :
+class MainViewHolder(private val binding: MainRecycleritemBinding, private val listener: (position: Int) -> Unit) :
     RecyclerView.ViewHolder(binding.root) {
-    fun bind(item: ImageOfTheDayModel) {
+    fun bind(item: ImageOfTheDayModel, position: Int) {
 
         binding.recyclermaintext.text = item.title
         Picasso.get().load(item.url).placeholder(R.drawable.nasa_place)
@@ -58,12 +58,12 @@ class MainViewHolder(private val binding: MainRecycleritemBinding, private val l
         )
 
         binding.parentView.setOnClickListener {
-            listener.invoke()
+            listener.invoke(position)
         }
     }
 
     companion object {
-        fun create(parent: ViewGroup, listener: () -> Unit): MainViewHolder {
+        fun create(parent: ViewGroup, listener: (position: Int) -> Unit): MainViewHolder {
             val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.main_recycleritem, parent, false)
             val binding = MainRecycleritemBinding.bind(view)

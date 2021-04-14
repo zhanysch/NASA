@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#2A292B">
-
+    android:background="#121111">
 
     <ProgressBar
         android:id="@+id/progresBar"
@@ -17,14 +16,41 @@
         app:layout_constraintEnd_toEndOf="@id/recyclerApod"/>
 
 
-
-
     <androidx.recyclerview.widget.RecyclerView
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/pageText"
         android:id="@+id/recyclerApod"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:orientation="horizontal"
         tools:listitem="@layout/apod_item"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    <TextView
+        android:id="@+id/pageText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#0DCD05"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:hint="blablabla"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/gilroy_bold"
+       app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_arrow_back_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

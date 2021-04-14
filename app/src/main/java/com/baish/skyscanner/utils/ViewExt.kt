@@ -20,10 +20,10 @@ fun ShapeableImageView.setCornerRadius(
 ) {
     this.shapeAppearanceModel = this.shapeAppearanceModel
         .toBuilder()
-        .setTopLeftCorner(CornerFamily.CUT, topLeft)
-        .setTopRightCorner(CornerFamily.CUT, topRight)
-        .setBottomLeftCorner(CornerFamily.CUT, bottomLeft)
-        .setBottomRightCorner(CornerFamily.CUT, bottomRight)
+        .setTopLeftCorner(CornerFamily.ROUNDED, topLeft)
+        .setTopRightCorner(CornerFamily.ROUNDED, topRight)
+        .setBottomLeftCorner(CornerFamily.ROUNDED, bottomLeft)
+        .setBottomRightCorner(CornerFamily.ROUNDED, bottomRight)
         .build()
 }
 
